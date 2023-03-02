@@ -1,0 +1,21 @@
+// 폰트 변수 
+$title-fomt: 'Cafe24Danjunghae';
+$nomal-font: 'Cafe24Simplehae';
+
+$big-font: 32px;
+$midium-font: 16px;
+$small-font: 14px;
+
+// 색상 변수
+$dark: #333;
+$gray: #ccc;
+$light-gray: #eee;
+
+.todoleft {
+    width: 40%;
+    border-right: 1px solid $dark;
+    h3 {
+        text-align: center;
+        margin-top: 50px;
+    }
+}

@@ -1,0 +1,69 @@
+/* 폰트 변수 */
+$title-fomt: 'Cafe24Danjunghae';
+$nomal-font: 'Cafe24Simplehae';
+
+$big-font: 38px;
+$midium-font: 18px;
+$small-font: 14px;
+
+// 색상 변수
+$dark: #333;
+$gray: #ccc;
+$light-gray: #eee;
+
+@keyframes typing{
+    from{ width: 0; }
+}
+
+@keyframes cursor{
+    50%{ border-color: transparent; }
+}
+
+.main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h1 {
+        font-family: $title-fomt;
+        font-size: $big-font;
+        margin-bottom: 10px;
+    }
+    .start {
+        width: 100%;
+        height: 180px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        p {
+            // letter-spacing: 1.6;
+            font-family: $title-fomt;
+            font-size: $midium-font;
+            // 타이핑 효과
+            width: 50ch;
+            overflow: hidden; 
+            white-space: nowrap;
+            border-right: .05em solid black;
+            animation: typing 6s steps(37),
+            cursor 1s steps(1) infinite;
+        }
+        button {
+            font-family: $nomal-font;
+            font-weight: bold;
+            border: none;
+            border-radius: 20px;
+            background-color: $light-gray;
+            box-shadow: 3px 3px rgba($color: $dark, $alpha: 1.0);
+            padding: 14px 32px;
+            margin: 34px 0;
+            transition: 0.3s;
+            cursor: pointer;
+            &:hover {
+                background-color: $gray;
+            }
+        }
+    }
+}

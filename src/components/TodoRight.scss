@@ -1,0 +1,69 @@
+// 폰트 변수 
+$title-fomt: 'Cafe24Danjunghae';
+$nomal-font: 'Cafe24Simplehae';
+
+$big-font: 28px;
+$midium-font: 26px;
+$small-font: 14px;
+
+// 색상 변수
+$dark: #333;
+$gray: #ccc;
+$light-gray: #eee;
+
+.todoright {
+    width: 60%;
+    background-color: beige;
+    padding: 50px;
+    font-family: $nomal-font;
+    font-weight: bold;
+    border-left: 1px solid $dark;
+    .list_zone {
+        font-size: $midium-font;
+        border: 1px solid $gray;
+        .list {
+            li {
+                background-color: aquamarine;
+                padding: 25px;
+            }
+        }
+    }
+    .add_zone {
+        width: 100%;
+        .input_zone {
+            // display: none;
+            input {
+                width: 95%;
+                font-family: $nomal-font;
+                font-size: $big-font;
+                font-weight: bold;
+                padding: 10px 20px;
+                border: 0;
+                outline: 0;
+                border: 2px solid $dark;
+                border-radius: 25px;
+            }
+            ::-webkit-input-placeholder {
+                color: $gray;
+                letter-spacing: 3px;
+            }
+        }
+        .add_btn{
+            width: 8%;
+            margin-left: 1.5%;
+            button {
+                width: 50px;
+                height: 50px;
+                border: 0;
+                outline: 0;
+                border: 2px solid $dark;
+                border-radius: 50%;
+                font-size: $big-font;
+                background-color: #fff;
+                .add_icon {
+                    font-size: 36px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,160 @@
+// 폰트 변수 
+$title-fomt: 'Cafe24Danjunghae';
+$nomal-font: 'Cafe24Simplehae';
+
+$big-font: 28px;
+$midium-font: 18px;
+$small-font: 16px;
+
+// 색상 변수
+$dark: #333;
+$gray: #ccc;
+$light-gray: #eee;
+
+.postslist {
+    margin-top: 130px;
+    font-family: $nomal-font;
+    height: auto;
+    h2 {
+        font-family: $title-fomt;
+        font-size: 24px;
+        text-align: center;
+        margin: 50px 0;
+    }
+    .posts_box {
+        width: 100%;
+        margin-bottom: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .posts {
+            height: 250px;
+            margin: 15px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid $light-gray;
+            display: flex;
+            transition: 0.3s;
+            cursor: pointer;
+            .img_zone {
+                padding: 10px;
+                img {
+                    width: auto;
+                    height: 200px;
+                    border-radius: 20px;
+                    transition: 0.3s;
+                    border: 1px solid $gray;
+                }
+            }
+            .text_zone {
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                h3 {
+                    font-size: $big-font;
+                }
+                p {
+                    font-size: $midium-font;
+                    height: 60%;
+                    line-height: 1.5;
+                }
+                nav {
+                    span {
+                        font-size: $small-font;
+                        padding-right: 5px;
+                        color: $dark;
+                    }
+                }
+            }
+            &:hover {
+                border-bottom: 2px solid $dark;
+                .img_zone {
+                    img {
+                        border-radius: 0%;
+                    }
+                }
+                .text_zone {
+                    h3 {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+    // 글 쓰기 or 투투 리스트 버튼
+    .plus_btn {
+        border: none;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        background-color: $light-gray;
+        box-shadow: 3px 3px rgba($color: $dark, $alpha: 1.0);
+        position: fixed;
+        bottom: 80px;
+        right: 80px;
+        .plus_icon {
+            font-size: 48px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        // 버튼 호버 했을 때 나오는 메뉴
+        .btn_menu {
+            position: fixed;
+            bottom: 160px;
+            right: 62px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            opacity: 0;
+            li {
+                font-family: $nomal-font;
+                font-weight: bold;
+                background-color: #fff;
+                padding: 14px 0;
+                width: 120px;
+                height: 45px;
+                border: 2px solid $gray;
+                border-radius: 25px;
+                transition: 0.3s;
+                cursor: pointer;
+                .li_btn {
+                    margin-left: 2px;
+                }
+                &:hover {
+                    background-color: $dark;
+                    color: #fff;
+                }
+            }
+            .list1 {
+                position: fixed;
+                bottom: 180px;
+                right: -58px;
+                transition: 0.3s;
+            }
+            .list2 {
+                position: fixed;
+                bottom: 240px;
+                right: -85px;
+                transition: 0.6s;
+            }
+        }
+        &:hover {
+            background-color: $gray;
+            .add_icon {
+                transform: rotate(45deg);
+            }
+            .btn_menu {
+                width: 120px;
+                height: 140px;
+                opacity: 1;
+                .list1 {
+                    right: 62px;
+                }
+                .list2 {
+                    right: 62px;
+                }
+            }
+        }
+    }
+}

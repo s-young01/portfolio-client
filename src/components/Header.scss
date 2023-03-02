@@ -1,0 +1,84 @@
+// 폰트 변수 
+$title-fomt: 'Cafe24Danjunghae';
+$nomal-font: 'Cafe24Simplehae';
+
+$big-font: 32px;
+$midium-font: 16px;
+$small-font: 14px;
+
+// 색상 변수
+$dark: #333;
+$gray: #ccc;
+$light-gray: #eee;
+
+.header {
+    width: 100%;
+    height: 80px;
+    border-bottom: 3px solid $dark;
+    background-color: rgba( 255, 255, 255, 0.95 );
+    position: fixed;
+    top: 0;
+    left: 0;
+    .inner {
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        h2 {
+            width: 70%;
+            font-size: $big-font;
+        }
+        .search_zone {
+            width: 20%;
+            .search_box {
+                width: 90%;
+                height: 45px;
+                border-radius: 28px;
+                padding: 0 8px;
+                background-color: $dark;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                input {
+                    width: 85%;
+                    border: none;
+                    outline: none;
+                    padding: 5px;
+                    margin-left: 5px;
+                    background-color: $dark;
+                    color: #fff;
+                }
+                button {
+                    border: none;
+                    background-color: $light-gray;
+                    width: 28px;
+                    height: 28px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    .search_icon {
+                        font-size: $midium-font;
+                    }
+                }
+            }
+        }
+        .logout_btn {
+            width: 10%;
+            text-align: center;
+            button {
+                font-family: $nomal-font;
+                font-weight: bold;
+                border: none;
+                letter-spacing: 1px;
+                background-color: $light-gray;
+                padding: 12px 28px;
+                border-radius: 20px;
+                box-shadow: 3px 3px rgba($color: $dark, $alpha: 1.0);
+                transition: 0.3s;
+                cursor: pointer;
+                &:hover {
+                    background-color: $gray;
+                }
+            }
+        }
+    }
+}
