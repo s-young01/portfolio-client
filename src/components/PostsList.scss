@@ -141,8 +141,8 @@ $light-gray: #eee;
         }
         &:hover {
             background-color: $gray;
-            .add_icon {
-                transform: rotate(45deg);
+            .plus_icon {
+                transform: rotate(-45deg);
             }
             .btn_menu {
                 width: 120px;

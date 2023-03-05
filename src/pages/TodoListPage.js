@@ -4,7 +4,7 @@ import TodoList from '../components/TodoList';
 
 const TodoListPage = () => {
     return (
-        <div className='TodoList'>
+        <div className='TodoList inner2'>
             <TodoHeader/>
             <TodoList/>
         </div>

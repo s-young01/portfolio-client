@@ -1,0 +1,93 @@
+// 폰트 변수 
+$title-fomt: 'Cafe24Danjunghae';
+$nomal-font: 'Cafe24Simplehae';
+
+$big-font: 38px;
+$midium-font: 18px;
+$small-font: 12px;
+
+// 색상 변수
+$dark: #333;
+$gray: #ccc;
+$light-gray: #eee;
+
+.post_zone {
+    margin-top: 120px;
+    height: auto;
+    .head_zone {
+        margin-bottom: 60px;
+        padding: 30px 20px 0 20px;
+        text-align: center;
+        border-bottom: 1px solid $gray;
+        h1 {
+            font-size: $big-font;
+            line-height: 1.2;
+        }
+        nav {
+            font-family: $nomal-font;
+            font-size: $small-font;
+            font-weight: bold;
+            margin: 20px 0 30px 0;
+            span {
+                padding: 0 8px;
+                border-right: 1px solid $dark;
+                &:last-child {
+                    border-right: none;
+                }
+            }
+        }
+    }
+    .desc_zone {
+        height: auto;
+        padding: 0 20px 60px 20px;
+        line-height: 2;
+        letter-spacing: 1.2px;
+        font-family: $nomal-font;
+        border-bottom: 1px solid $gray;
+        p {
+            padding: 10px 0;
+        }
+    }
+    .commend_zone {
+        width: 100%;
+        margin: 30px 0;
+        padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+        font-family: $nomal-font;
+        font-weight: bold;
+        .commend_count {
+            padding: 0 3px;
+        }
+        textarea {
+            height: 100px;
+            border: 0;
+            outline: 0;
+            resize: none;
+            border: 1px solid $light-gray;
+            border-radius: 3px;
+            padding: 10px;
+            margin: 15px 0;
+            font-family: $nomal-font;
+            letter-spacing: 1.2px;
+        }
+        .commend_btn {
+            text-align: end;
+            button {
+                padding: 12px 24px;
+                border: 0;
+                outline: 0;
+                background-color: $light-gray;
+                border-radius: 5px;
+                font-family: $nomal-font;
+                font-weight: bold;
+                letter-spacing: 1.2px;
+                transition: 0.3s;
+                cursor: pointer;
+                &:hover {
+                    background-color: $gray;
+                }
+            }
+        }
+    }
+}

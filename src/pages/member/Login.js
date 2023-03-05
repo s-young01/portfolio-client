@@ -26,12 +26,12 @@ const Login = () => {
                 </table>
                 <div className='login_btns'>
                     <button>로그인</button>
-                    <button><Link to='/join'>회원가입</Link></button>
+                    <Link to='/join'><button>회원가입</button></Link>
                 </div>
-                <div className='find'>
-                    <span className='pointer'>아이디 찾기</span>
+                <div className='find_zone'>
+                    <Link to='/find_id'><span className='pointer'>아이디 찾기</span></Link>
                     <span>|</span>
-                    <span className='pointer'>비밀번호 찾기</span>
+                    <Link to='/find_pw'><span className='pointer'>비밀번호 찾기</span></Link>
                 </div>
             </div>
         </div>

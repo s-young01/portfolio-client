@@ -9,7 +9,7 @@ const Header = () => {
                 <h2>Hello님의 기록</h2>
                 <div className='search_zone'>
                     <nav className='search_box'>
-                        <input type='text'/>
+                        <input type='text' placeholder='검색어를 입력하세요'/>
                         <button>
                             <BiSearchAlt2 className='search_icon'/>
                         </button>

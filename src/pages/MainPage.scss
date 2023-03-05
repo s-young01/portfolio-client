@@ -2,7 +2,7 @@
 $title-fomt: 'Cafe24Danjunghae';
 $nomal-font: 'Cafe24Simplehae';
 
-$big-font: 38px;
+$big-font: 42px;
 $midium-font: 18px;
 $small-font: 14px;
 
@@ -39,7 +39,6 @@ $light-gray: #eee;
         align-items: center;
         justify-content: center;
         p {
-            // letter-spacing: 1.6;
             font-family: $title-fomt;
             font-size: $midium-font;
             // 타이핑 효과

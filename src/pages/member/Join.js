@@ -50,6 +50,12 @@ const Join = () => {
                             </td>
                         </tr>
                         <tr>
+                            <th width='10%'>전화번호</th>
+                            <td>
+                                <input type='text'/>
+                            </td>
+                        </tr>
+                        <tr>
                             <th>생년월일</th>
                             <td>
                                 <input type='text' className='short_input'/>

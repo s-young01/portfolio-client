@@ -4,7 +4,7 @@ const TodoHeader = () => {
     return (
         <div className='header'>
             <div className='inner'>
-                <h2>My_To Do List</h2>
+                <h2>To Do List</h2>
                 <div>
                     <h3>Today</h3>
                     <span>:</span>
