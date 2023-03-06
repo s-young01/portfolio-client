@@ -1,17 +1,13 @@
 import React from 'react';
 import './Share.scss';
-import { IoShareSocialSharp, IoEllipsisVertical } from "react-icons/io5";
-
+import ShareBtn from './ShareBtn';
+import VerticalBtn from './VerticalBtn';
 
 const Share = () => {
     return (
         <div className='share'>
-            <div className='share_btn'>
-                <IoEllipsisVertical className='share_icon'/>
-            </div>
-            <div className='share_btn'>
-                <IoShareSocialSharp className='share_icon'/>
-            </div>
+            <VerticalBtn/>
+            <ShareBtn/>
         </div>
     );
 };

@@ -13,8 +13,11 @@ const PostPage = () => {
                     <h1>슬기로운 코딩생활</h1>
                     <nav>
                         <span>Hello</span>
+                        <span>|</span>
                         <span>2023.02.23.02:43</span>
+                        <span>|</span>
                         <span>수정</span>
+                        <span>|</span>
                         <span>삭제</span>
                     </nav>
                 </div> 
