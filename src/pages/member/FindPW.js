@@ -19,9 +19,7 @@ const FindPW = () => {
                         <tr>
                             <th>이메일(아이디)</th>
                             <td>
-                                <input type='text' className='id_input'/>
-                                <span>@</span>
-                                <input type='text' className='id_input'/>
+                                <input type='text'/>
                             </td>
                         </tr>
                     </tbody>

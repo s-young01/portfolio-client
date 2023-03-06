@@ -144,13 +144,14 @@ $light-gray: #eee;
                     font-size: $big-font;
                 }
             }
-            .share1 {
+            .react-share__ShareButton {
                 position: fixed;
                 top: 40.2%;
                 left: 21.8%;
                 transition: 0.3s;
+                background-color: #fff !important;
                 &:hover {
-                    background-color: #00BFFF;
+                    background-color: rgb(28, 208, 253) !important;
                 }
             }
             .share2 {

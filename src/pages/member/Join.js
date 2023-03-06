@@ -2,6 +2,7 @@ import React from 'react';
 import './Join.scss';
 import { FcCalendar } from "react-icons/fc";
 import { Link } from 'react-router-dom';
+import { Calendar } from 'react-calendar';
 
 
 const Join = () => {
@@ -65,15 +66,18 @@ const Join = () => {
                                 <input type='text' className='short_input'/>
                                 <span>일</span>
                                 <FcCalendar className='calendar_icon'/>
+                                <Calendar formatDay={(locale, date) =>
+                                date.toLocaleString('en', { day: 'numeric' })
+                                }/>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <div className='join_btn'>
-                    <button>회원가입</button>
-                    <button><Link to='/login'>취소</Link></button>
-                </div>
+                <button>회원가입</button>
+                <Link to='/login'><button>취소</button></Link>
+            </div>
         </div>
     );
 };

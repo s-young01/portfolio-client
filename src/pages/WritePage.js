@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import TextEdit from '../components/TextEdit';
+import { MdPlaylistAddCheck } from "react-icons/md";
 import './WritePage.scss';
 
 const WritePage = () => {
@@ -16,7 +17,8 @@ const WritePage = () => {
             <div className='footer'>
                 <nav className='inner'>
                     <Link to='http://speller.cs.pusan.ac.kr/'>
-                        <p>맞춤법 검사하기</p>
+                        <span>맞춤법 검사하기</span>
+                        <MdPlaylistAddCheck className='check_icon'/>
                     </Link>
                     <button>등록하기</button>
                 </nav>

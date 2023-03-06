@@ -3,7 +3,7 @@ $title-fomt: 'Cafe24Danjunghae';
 $nomal-font: 'Cafe24Simplehae';
 
 $big-font: 32px;
-$midium-font: 16px;
+$midium-font: 24px;
 $small-font: 14px;
 
 // 색상 변수
@@ -51,8 +51,20 @@ $light-gray: #eee;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            p {
-                font-weight: bold;
+            a {
+                border-left: 1px solid $gray;
+                border-right: 1px solid $gray;
+                span {
+                    line-height: 70px;
+                    font-size: $small-font;
+                    font-weight: bold;
+                    padding-left: 20px;
+                }
+                .check_icon {
+                    font-size: $midium-font;
+                    vertical-align: middle;
+                    margin: 0 20px 0 2px;
+                }
             }
             button {
                 font-family: $nomal-font;
