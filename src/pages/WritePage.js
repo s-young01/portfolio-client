@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import TextEdit from '../components/TextEdit';
 import { MdPlaylistAddCheck } from "react-icons/md";
 import './WritePage.scss';
 
-const WritePage = () => {
+const WritePage = ({isButtonTrue}) => {
+    useEffect(()=>{
+        isButtonTrue();
+    },[isButtonTrue]);
     return (
         <div className='write'>
             <Header/>

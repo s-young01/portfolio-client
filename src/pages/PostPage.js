@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import Share from '../components/Share';
 import './Post.scss';
 
-const PostPage = () => {
+const PostPage = ({isButtonTrue}) => {
+    useEffect(()=>{
+        isButtonTrue();
+    },[isButtonTrue]);
     return (
         <div className='post'>
             <Header/>

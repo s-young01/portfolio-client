@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Join.scss';
 import { FcCalendar } from "react-icons/fc";
 import { Link } from 'react-router-dom';
@@ -6,6 +6,11 @@ import { Calendar } from 'react-calendar';
 
 
 const Join = () => {
+    // 달력 아이콘 상태 관리
+    const [cal, onCal] = useState(false);
+    const onClick_Calendar = () => {
+        onCal(!cal);
+    }
     return (
         <div className='join'>
             <h2>JOIN</h2>
@@ -65,10 +70,11 @@ const Join = () => {
                                 <span>월</span>
                                 <input type='text' className='short_input'/>
                                 <span>일</span>
-                                <FcCalendar className='calendar_icon'/>
-                                <Calendar formatDay={(locale, date) =>
+                                <FcCalendar className='calendar_icon' onClick={onClick_Calendar}/>
+                                {cal ? <Calendar formatDay={(locale, date) =>
                                 date.toLocaleString('en', { day: 'numeric' })
-                                }/>
+                                }/> : null}
+                                
                             </td>
                         </tr>
                     </tbody>
