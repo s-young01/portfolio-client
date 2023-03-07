@@ -4,7 +4,7 @@ $nomal-font: 'Cafe24Simplehae';
 
 $big-font: 28px;
 $midium-font: 26px;
-$small-font: 16px;
+$small-font: 18px;
 
 // 색상 변수
 $dark: #333;
@@ -26,7 +26,7 @@ $light-gray: #eee;
         align-items: center;
         justify-content: space-between;
         h2 {
-            width: 75%;
+            width: 78%;
             font-size: $big-font;
         }
         .search_zone {
@@ -68,6 +68,18 @@ $light-gray: #eee;
         }
         .user_zone {
             display: flex;
+            align-items: center;
+            .user_img {
+                width: 45px;
+                height: 45px;
+                border: 1px solid $light-gray;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+            .user_icon {
+                font-size: $small-font;
+                margin: 3px;
+            }
         }
     }
 }

@@ -11,14 +11,6 @@ $dark: #333;
 $gray: #ccc;
 $light-gray: #eee;
 
-@keyframes typing{
-    from{ width: 0; }
-}
-
-@keyframes cursor{
-    50%{ border-color: transparent; }
-}
-
 .main {
     width: 100%;
     height: 100vh;
@@ -39,15 +31,9 @@ $light-gray: #eee;
         align-items: center;
         justify-content: center;
         p {
-            font-family: $title-fomt;
+            font-family: $nomal-font;
             font-size: $midium-font;
-            // 타이핑 효과
-            width: 50ch;
-            overflow: hidden; 
-            white-space: nowrap;
-            border-right: .05em solid black;
-            animation: typing 6s steps(37),
-            cursor 1s steps(1) infinite;
+            font-weight: bold;
         }
         button {
             font-family: $nomal-font;

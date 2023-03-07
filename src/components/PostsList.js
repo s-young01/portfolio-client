@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const PostsList = () => {
     return (
         <div className='postslist inner2'>
-            <h2>전체 기록 (7) </h2>
+            <h2>전체 글 (7) </h2>
             <div className='posts_box'>
                 <Link to='/post'>
                     <div className='posts'>
