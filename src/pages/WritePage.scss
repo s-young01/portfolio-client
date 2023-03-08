@@ -16,7 +16,7 @@ $light-gray: #eee;
     margin-top: 80px;
     .write_zone {
         width: 100%;
-        height: 100vh - 8.3vh;
+        height: auto;
         input {
             width: 100%;
             padding: 20px 15px;
@@ -80,4 +80,31 @@ $light-gray: #eee;
             }
         }
     }
+}
+
+// 텍스트 편집기 스타일
+.ck.ck-editor__top {
+    position: fixed;
+    top: 0;
+    left: 24%;
+    width: 52%;
+    padding: 21px;
+    border-left: 1px solid $light-gray;
+    border-right: 1px solid $light-gray;
+    z-index: 6;
+}
+.ck.ck-toolbar {
+    border: 0;
+}
+.ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
+    border: 0;
+}
+.ck.ck-editor__editable {
+    h2, h3, h4, p {
+        line-height: 1.5;
+    }
+}
+.ck.ck-editor__editable.ck-focused:not(.ck-editor__nested-editable) {
+    border: 0;
+    box-shadow: none;
 }

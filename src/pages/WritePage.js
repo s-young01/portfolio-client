@@ -17,7 +17,7 @@ const WritePage = ({isButtonTrue}) => {
                 placeholder='제목을 입력하세요'/>
                 <TextEdit/>
             </div>
-            <div className='footer'>
+            {/* <div className='footer'>
                 <nav className='inner'>
                     <Link to='http://speller.cs.pusan.ac.kr/'>
                         <span>맞춤법 검사하기</span>
@@ -25,7 +25,7 @@ const WritePage = ({isButtonTrue}) => {
                     </Link>
                     <button>등록하기</button>
                 </nav>
-            </div>
+            </div> */}
         </div>
     );
 };

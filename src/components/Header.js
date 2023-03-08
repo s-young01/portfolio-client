@@ -19,12 +19,14 @@ const Header = () => {
             <div className='inner'>
                 <h2><Link to='/posts'>Hello_</Link></h2>
                 <div className='search_zone'>
-                    <nav className='search_box'>
+                    {pathname === '/writepost' ? null
+                    : <nav className='search_box'>
                         <input type='text' placeholder='검색어를 입력하세요'/>
                         <button>
                             <BiSearchAlt2 className='search_icon'/>
                         </button>
-                    </nav>
+                    </nav>}
+                    
                 </div>
                 <div className='user_zone'>
                     <img className='user_img' alt='' onClick={onClick_userMenu}

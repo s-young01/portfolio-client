@@ -20,6 +20,7 @@ $light-gray: #eee;
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 5;
     .inner {
         height: 80px;
         display: flex;
