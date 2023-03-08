@@ -28,7 +28,7 @@ const initialState = {
 }
 
 // 미들웨어
-const getDatas = (callback) => async dispatch => {
+export const getDatas = (callback) => async dispatch => {
     dispatch({ type: GET_DATAS});
     try {
         const response = await callback();
@@ -39,7 +39,7 @@ const getDatas = (callback) => async dispatch => {
         dispatch({ type: GET_DATAS_ERROR });
     }
 }
-const getData = (no) => async dispatch => {
+export const getData = (no) => async dispatch => {
     dispatch({ type: GET_DATA});
     try {
         const response = await axios.get(`${API_URL}/post/${no}`);

@@ -25,7 +25,8 @@ const Join = () => {
         m_phone: '', 
         m_Y: '', 
         m_M: '', 
-        m_D: ''
+        m_D: '',
+        m_id: ''
     });
 
     // input Change 이벤트
@@ -47,44 +48,53 @@ const Join = () => {
         && formData.m_phone !== '' && formData.m_Y !== ''
         && formData.m_M !== '' && formData.m_D !== '') {
             addMember();
+            updateid();
+        }else {
+            alert('모든 입력란은 필수입니다.');
         }
     }
     const addMember = () => {
         axios.post(`${API_URL}/join`, formData)
         .then(res => {
-            alert('회원가입 되셨습니다.');
+            alert('회원가입 되었습니다.');
             navigate('/login');
+        })
+        .catch(e => console.log(e))
+    }
+    // id값 업데이트
+    const updateid = () => {
+        axios.patch(`${API_URL}/updateid`, formData.m_id)
+        .then(res => {
+            console.log('아이디 업데이트');
         })
         .catch(e => console.log(e))
     }
 
     // 닉네임 중복체크
-    // const [nicCheck, setNicCheck] = useState(0);
-    // const onClick_nicCh = () => {
-    //     if(nicCheck) {
-    //         axios.post(`${API_URL}/nickname`, { nicCheck: nickname })
+    // const [nickCheck, setNickCheck] = useState(0);
+    // const onClick_nickCh = () => {
+    //     if(formData.m_nickname !== '') {
+    //         axios.post(`${API_URL}/nickname`, { nickname: nickname })
     //         .then(res => {
-    //             console.log(res.data.m_nickname);
-    //             if(res.data.m_nickname === m_nickname) {
-    //                 setNicCheck({ nicCheck: 0 });
+    //             console.log(res.data.nickname);
+    //             if(res.data.m_nickname === nickname) {
+    //                 setNickCheck({ nickCheck: 0 });
     //                 alert('이미 사용중인 닉네임입니다.');
     //             } else {
-    //                 setNicCheck({ nicCheck: 1 });
+    //                 setNickCheck({ nickCheck: 1 });
     //                 alert('사용 가능한 닉네임입니다.');
     //             }
     //         })
     //         .catch(e => console.log(e))
-    //     }else {
-    //         alert('닉네임을 입력해주세요.');
     //     }
     // }
 
     // 정규표현식
-    const nameReg = /^[a-zA-Z가-힣]{2,10}$/;
-    const nicknameReg = /^[a-zA-Z가-힣]{2,10}$/;
-    const emailReg = /^[a-zA-Z0-9]+$/;
-    const passReg = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%&*])[A-Za-z\d!@#$%&*]{8,16}$/;
-    const phoneReg = /^01(?:0|1|[6-9])(?:\d{4})\d{4}$/;
+    // const nameReg = /^[a-zA-Z가-힣]{2,12}$/;
+    // const nicknameReg = /^[a-zA-Z가-힣]{2,12}$/;
+    // const emailReg = /^[a-zA-Z0-9]+$/;
+    // const passReg = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%&*])[A-Za-z\d!@#$%&*]{8,16}$/;
+    // const phoneReg = /^01(?:0|1|[6-9])(?:\d{4})\d{4}$/;
 
     return (
         <div className='join'>
@@ -97,7 +107,7 @@ const Join = () => {
                                 <th width='10%'>이름</th>
                                 <td>
                                     <input type='text' name='m_name' value={formData.m_name}
-                                    required onChange={onChange}/>
+                                    onChange={onChange}/>
                                     {/* {!nameReg.test(formData.m_name) ?
                                     <span></span> 
                                     : <span>aaa</span>} */}
@@ -107,7 +117,7 @@ const Join = () => {
                                 <th>닉네임</th>
                                 <td width='30%'>
                                     <input type='text' name='m_nickname' value={formData.m_nickname}
-                                    onChange={onChange} required/>
+                                    onChange={onChange}/>
                                     <button className='chek_btn'>중복확인</button>
                                 </td>
                             </tr>
@@ -115,7 +125,7 @@ const Join = () => {
                                 <th>이메일(아이디)</th>
                                 <td>
                                     <input type='text' name='m_email1' value={formData.m_email1}
-                                    onChange={onChange} required/>
+                                    onChange={onChange}/>
                                     <span>@</span>
                                     <select name='m_email2' value={formData.m_email2} onChange={onChange}>
                                         <option value='google.com'>google.com</option>
@@ -128,7 +138,7 @@ const Join = () => {
                             <tr>
                                 <th>비밀번호</th>
                                 <td>
-                                    <input type='password' name='m_pw' maxLength='11' value={formData.m_pw} onChange={onChange} />
+                                    <input type='password' name='m_pw' value={formData.m_pw} onChange={onChange} />
                                 </td>
                             </tr>
                             <tr>
@@ -141,19 +151,19 @@ const Join = () => {
                                 <th width='10%'>전화번호</th>
                                 <td>
                                     <input type='text' name='m_phone' value={formData.m_phone}
-                                    onChange={onChange} required/>
+                                    onChange={onChange}  maxLength='11'/>
                                 </td>
                             </tr>
                             <tr>
                                 <th>생년월일</th>
                                 <td>
-                                    <input type='text' className='short_input' maxLength='4' required
+                                    <input type='text' className='short_input' maxLength='4'
                                     name='m_Y' onChange={onChange} value={formData.m_Y}/>
                                     <span>년</span>
-                                    <input type='text' className='short_input' maxLength='2' required
+                                    <input type='text' className='short_input' maxLength='2'
                                     name='m_M' onChange={onChange} value={formData.m_M}/>
                                     <span>월</span>
-                                    <input type='text' className='short_input' maxLength='2' required
+                                    <input type='text' className='short_input' maxLength='2'
                                     name='m_D' onChange={onChange} value={formData.m_D}/>
                                     <span>일</span>
                                     <FcCalendar className='calendar_icon' onClick={onClick_Calendar}/>
