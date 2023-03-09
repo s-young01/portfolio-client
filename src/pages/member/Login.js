@@ -12,8 +12,8 @@ const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [loginData, setLoginData] = useState({
-        m_id: '',
-        m_pw: ''
+        userid: '',
+        userpw: ''
     });
 
     // input Change 이벤트
@@ -33,17 +33,18 @@ const Login = () => {
         }else {
             axios.post(`${API_URL}/login`, loginData)
             .then(result => {
-                const {id, nick} = result.data[0];
-                if(id && nick) {
+                const {m_id, m_nickname} = result.data[0];
+                if(m_id && m_nickname) {
                     alert('로그인 되었습니다.');
                     let expires = new Date();
                     expires.setMinutes(expires.getMinutes()+60);
-                    setCookie('userid', `${id}`, {path: '/posts', expires});
-                    setCookie('usernickname', `${nick}`, {path: '/posts', expires});
+                    setCookie('userid', `${m_id}`, {path: '/posts', expires});
+                    setCookie('usernickname', `${m_nickname}`, {path: '/posts', expires});
                     dispatch(setLogin());
                     dispatch(goHome(navigate));
                 }
             })
+            .catch(e => console.log(e));
         }
     }
     return (
@@ -56,15 +57,15 @@ const Login = () => {
                             <tr>
                                 <th width='35%'>ID</th>
                                 <td>
-                                    <input type='text' name='m_id'
-                                    value={loginData.m_id} onChange={onChange}/>
+                                    <input type='text' name='userid'
+                                    value={loginData.userid} onChange={onChange}/>
                                 </td>
                             </tr>
                             <tr>
                                 <th width='35%'>PASSWORD</th>
                                 <td>
-                                    <input type='password' name='m_pw'
-                                    value={loginData.m_pw} onChange={onChange}/>
+                                    <input type='password' name='userpw'
+                                    value={loginData.userpw} onChange={onChange}/>
                                 </td>
                             </tr>
                         </tbody>

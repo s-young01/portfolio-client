@@ -25,9 +25,27 @@ const Join = () => {
         m_phone: '', 
         m_Y: '', 
         m_M: '', 
-        m_D: '',
-        m_id: ''
+        m_D: ''
     });
+
+    // 닉네임 중복체크
+    const [nickCheck, setNickCheck] = useState(false);
+    const onClick_nickCh = () =>{
+        if(formData.m_nickname !== '') {
+            axios.get(`${API_URL}/nickcheck/${formData.m_nickname}`)
+            .then(res => {
+                console.log(res);
+                if(res.data.m_nickname === formData.m_nickname) {
+                    alert('이미 사용중인 닉네임입니다.');
+                }else {
+                    alert('사용 가능한 닉네임 입니다.');
+                    setNickCheck(true);
+                }
+            })
+        }else {
+            alert('닉네임을 입력해주세요.');
+        }
+    }
 
     // input Change 이벤트
     const onChange = (e) => {
@@ -41,16 +59,17 @@ const Join = () => {
     // 폼 전송 이벤트
     const onSubmit = (e) => {
         e.preventDefault();
-        // 빈 곳이 없는지 체크
-        if(formData.m_name !== '' && formData.m_nickname !== ''
-        && formData.m_email1 !== '' && formData.m_email2 !== ''
-        && formData.m_pw !== '' && formData.m_pwch
-        && formData.m_phone !== '' && formData.m_Y !== ''
-        && formData.m_M !== '' && formData.m_D !== '') {
-            addMember();
-            updateid();
-        }else {
+        // 중복체크 버튼을 안 누르고 전송했을 때 전송 안되게 하기
+        if(!nickCheck){
+            alert("안돼용");
+        }else if(formData.m_name === '' || formData.m_nickname === ''
+        || formData.m_email1 === '' || formData.m_email2 === ''
+        || formData.m_pw === '' || formData.m_pwch === ''
+        || formData.m_phone === '' || formData.m_Y === ''
+        || formData.m_M === '' || formData.m_D === '') {
             alert('모든 입력란은 필수입니다.');
+        }else{
+            addMember();
         }
     }
     const addMember = () => {
@@ -61,33 +80,6 @@ const Join = () => {
         })
         .catch(e => console.log(e))
     }
-    // id값 업데이트
-    const updateid = () => {
-        axios.patch(`${API_URL}/updateid`, formData.m_id)
-        .then(res => {
-            console.log('아이디 업데이트');
-        })
-        .catch(e => console.log(e))
-    }
-
-    // 닉네임 중복체크
-    // const [nickCheck, setNickCheck] = useState(0);
-    // const onClick_nickCh = () => {
-    //     if(formData.m_nickname !== '') {
-    //         axios.post(`${API_URL}/nickname`, { nickname: nickname })
-    //         .then(res => {
-    //             console.log(res.data.nickname);
-    //             if(res.data.m_nickname === nickname) {
-    //                 setNickCheck({ nickCheck: 0 });
-    //                 alert('이미 사용중인 닉네임입니다.');
-    //             } else {
-    //                 setNickCheck({ nickCheck: 1 });
-    //                 alert('사용 가능한 닉네임입니다.');
-    //             }
-    //         })
-    //         .catch(e => console.log(e))
-    //     }
-    // }
 
     // 정규표현식
     // const nameReg = /^[a-zA-Z가-힣]{2,12}$/;
@@ -108,9 +100,6 @@ const Join = () => {
                                 <td>
                                     <input type='text' name='m_name' value={formData.m_name}
                                     onChange={onChange}/>
-                                    {/* {!nameReg.test(formData.m_name) ?
-                                    <span></span> 
-                                    : <span>aaa</span>} */}
                                 </td>
                             </tr>
                             <tr>
@@ -118,7 +107,7 @@ const Join = () => {
                                 <td width='30%'>
                                     <input type='text' name='m_nickname' value={formData.m_nickname}
                                     onChange={onChange}/>
-                                    <button className='chek_btn'>중복확인</button>
+                                    <button className='chek_btn' type='button' onClick={onClick_nickCh}>중복확인</button>
                                 </td>
                             </tr>
                             <tr>

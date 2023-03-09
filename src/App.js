@@ -7,12 +7,13 @@ import FindPW from './pages/member/FindPW';
 import Join from './pages/member/Join';
 import Login from './pages/member/Login';
 import PostPage from './pages/PostPage';
-import PostsPage from './pages/PostsPage';
+// import PostsPage from './pages/PostsPage';
 import TodoListPage from './pages/TodoListPage';
 import WritePage from './pages/WritePage';
 import { TbSun, TbMoon } from "react-icons/tb";
 import { MdKeyboardArrowUp } from "react-icons/md";
 import ScrollTop from './components/ScrollTop';
+import PostsContainer from './container/PostsContainer';
 
 function App() {
   // 경로가 posts, post, writepost일 때만 
@@ -49,7 +50,7 @@ function App() {
           <Route path='/join' element={<Join/>}/>
           <Route path='/find_id' element={<FindID/>}/>
           <Route path='/find_pw' element={<FindPW/>}/>
-          <Route path='/posts' element={<PostsPage isButtonTrue={isButtonTrue}/>}/>
+          <Route path='/posts' element={<PostsContainer isButtonTrue={isButtonTrue}/>}/>
           <Route path='/post' element={<PostPage isButtonTrue={isButtonTrue}/>}/>
           <Route path='/writepost' element={<WritePage isButtonTrue={isButtonTrue}/>}/>
           <Route path='/todolist' element={<TodoListPage/>}/>

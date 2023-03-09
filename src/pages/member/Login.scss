@@ -50,6 +50,9 @@ $light-gray: #eee;
                     font-family: $nomal-font;
                     font-weight: bold;
                 }
+                input[type='password'] {
+                    font-family: none;
+                }
             }
             .login_btns {
                 margin: 20px 0;

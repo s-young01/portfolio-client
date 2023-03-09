@@ -29,11 +29,10 @@ const Header = () => {
                     
                 </div>
                 <div className='user_zone'>
-                    <img className='user_img' alt='' onClick={onClick_userMenu}
-                    src={require('http://localhost:3000/images/img1.jpg').default}/>
+                    <div className='user_img' alt='' onClick={onClick_userMenu}>
+                    </div>
                     {userMenu ? <MdKeyboardArrowUp className='user_icon'/> 
                     : <MdKeyboardArrowDown className='user_icon'/>}
-                    
                 </div>
                 {userMenu ? <UserMenu/> : null}
                 
