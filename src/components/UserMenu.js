@@ -21,7 +21,9 @@ const UserMenu = () => {
                 </Link>
             </li>
             <li className='user_li'>
-                <span>내 프로필</span>
+                <Link to='/profile'>
+                    <span>내 프로필</span>
+                </Link>
             </li>
             <li className='user_li'>
                 <span>로그아웃</span>

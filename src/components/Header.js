@@ -26,10 +26,9 @@ const Header = () => {
                             <BiSearchAlt2 className='search_icon'/>
                         </button>
                     </nav>}
-                    
                 </div>
-                <div className='user_zone'>
-                    <div className='user_img' alt='' onClick={onClick_userMenu}>
+                <div className='user_zone'  onClick={onClick_userMenu}>
+                    <div className='user_img' alt=''>
                     </div>
                     {userMenu ? <MdKeyboardArrowUp className='user_icon'/> 
                     : <MdKeyboardArrowDown className='user_icon'/>}

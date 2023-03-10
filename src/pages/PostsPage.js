@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Header from '../components/Header';
-import PostsList from '../components/PostsList';
+import PostsContainer from '../container/PostsContainer';
 
 const PostsPage = ({isButtonTrue}) => {
     useEffect(()=>{
@@ -9,7 +9,7 @@ const PostsPage = ({isButtonTrue}) => {
     return (
         <div>
             <Header/>
-            <PostsList/>
+            <PostsContainer/>
         </div>
     );
 };

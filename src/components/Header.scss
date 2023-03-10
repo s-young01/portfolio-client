@@ -70,12 +70,12 @@ $light-gray: #eee;
         .user_zone {
             display: flex;
             align-items: center;
+            cursor: pointer;
             .user_img {
                 width: 45px;
                 height: 45px;
                 border: 1px solid $light-gray;
                 border-radius: 50%;
-                cursor: pointer;
             }
             .user_icon {
                 font-size: $small-font;

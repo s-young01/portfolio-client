@@ -34,7 +34,6 @@ $light-gray: #eee;
             border-bottom: 2px solid $light-gray;
             display: flex;
             transition: 0.3s;
-            cursor: pointer;
             .img_zone {
                 padding: 10px;
                 img {
@@ -56,9 +55,13 @@ $light-gray: #eee;
                 p {
                     font-size: $midium-font;
                     height: 60%;
-                    line-height: 1.5;
+                    line-height: 1.1;
+                    overflow: hidden;
                 }
                 nav {
+                    .bold {
+                        font-weight: bold;
+                    }
                     span {
                         font-size: $small-font;
                         padding-right: 5px;

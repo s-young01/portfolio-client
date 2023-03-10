@@ -4,19 +4,22 @@ import { Link } from 'react-router-dom';
 
 // map돌려서 화면에 뿌려줄 함수형 컴포넌트 작성
 function Posts({ list }) {
+    // html 태그까지 출력되는 걸 정규식으로 없애기
+    const htmlReg = /(<([^>]+)>)/gi;
+    // &nbsp; 를 없애기
+    const newlineReg = /(&nbsp;)/g;
     return(
-        <Link to='/post'>
+        <Link to={`/post/${list.p_no}`}>
             <div className='posts'>
                 <div className='img_zone'>
                     <img src='./images/img1.jpg' alt=''/>
                 </div>
                 <div className='text_zone'>
-                    <h3>{`${list.title}`}</h3>
-                    <p>{`${list.content}`}</p>
+                    <h3>{`${list.p_title}`}</h3>
+                    <p>{`${list.p_content}`.replace(htmlReg, '').replace(newlineReg, '')}</p>
                     <nav>
-                        <span>|</span>
-                        <span>2023.02.23.</span>
-                        <span>02:43</span>
+                        <span className='bold'>|</span>
+                        <span>{`${list.p_date}`}</span>
                     </nav>
                 </div>
             </div>
@@ -24,12 +27,29 @@ function Posts({ list }) {
     );
 }
 
-const PostsList = ({ data }) => {
+const PostsList = ({data}) => {
     return (
         <div className='postslist inner2'>
-            <h2>전체 글 (7) </h2>
+            <h2>전체 글 ({data.length}) </h2>
             <div className='posts_box'>
-                {data.map(d => <Posts key={d.p_no} list={d}/>)}
+                {data.length > 0 ? data.map(d => <Posts key={d.p_no} list={d}/>) 
+                : <>
+                    <div className='posts'>
+                        {/* <div className='img_zone'>
+                            <img src='./images/img1.jpg' alt=''/>
+                        </div> */}
+                        <div className='text_zone'>
+                            <h3>당신의 첫 게시글을 작성해주세요!</h3>
+                            <p>Written Forest에 오신 걸 환영합니다<br/>
+                                상단 왼쪽 메뉴 버튼을 눌러 글쓰기를 시작해보세요
+                            </p>
+                            <nav>
+                                <span className='bold'>|</span>
+                                <span>Written Forest</span>
+                            </nav>
+                        </div>
+                    </div>
+                </>}
             </div>
         </div>
     );
