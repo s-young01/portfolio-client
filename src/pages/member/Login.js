@@ -28,7 +28,7 @@ const Login = () => {
     // form 전송 이벤트
     const onSubmit = (e) => {
         e.preventDefault();
-        if(loginData.m_id === '' || loginData.m_pw === '') {
+        if(loginData.userid === '' || loginData.userpw === '') {
             alert('모든 입력란을 입력해주세요');
         }else {
             axios.post(`${API_URL}/login`, loginData)
@@ -37,7 +37,7 @@ const Login = () => {
                 if(m_id && m_nickname) {
                     alert('로그인 되었습니다.');
                     let expires = new Date();
-                    expires.setMinutes(expires.getMinutes()+60);
+                    expires.setMinutes(expires.getMinutes()+2);
                     setCookie('userid', `${m_id}`, {path: '/posts', expires});
                     setCookie('usernickname', `${m_nickname}`, {path: '/posts', expires});
                     dispatch(setLogin());

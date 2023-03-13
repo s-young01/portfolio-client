@@ -10,7 +10,7 @@ export const setId = (id) => ({ type: SET_USERID, id: id });
 
 // 로그 아웃 시, 홈으로 이동하는 함수
 export const goHome = (navigate) => () => {
-    navigate('/posts');
+    navigate('/login');
 }
 
 // 초기값
