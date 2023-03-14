@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { IoEllipsisVertical } from "react-icons/io5";
+import { IoEllipsisVertical, IoHeart } from "react-icons/io5";
 import { TbPencil, TbTrash } from "react-icons/tb";
+import { useSelector } from 'react-redux';
 
 const VerticalBtn = () => {
     // 더보기 버튼 상태관리
@@ -16,11 +17,21 @@ const VerticalBtn = () => {
         document.querySelector('.vertical2').style.top = '33%';
         document.querySelector('.vertical2').style.left = '18%';
     }
+
+    // 로그인 체크
+    const isLogin = useSelector(state => state.loginCheck.isLogin);
     return (
         <>
-            <div className='share_btn' onClick={onClick_ver}>
+            {isLogin ? 
+            <div className='share_btn' onClick={isLogin ? onClick_ver : null}>
                 <IoEllipsisVertical className='share_icon'/>
             </div>
+            : 
+            <div className='share_btn'>
+                <IoHeart className='share_icon'/>
+            </div>
+            }
+            {isLogin ? null : <span className='heart_count'>2</span>}
             <ul className='vertical_menu'>
                 <li>
                     {add ? null : <button className='vertical1' li1={li1}>

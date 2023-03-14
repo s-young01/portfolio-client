@@ -2,10 +2,7 @@ import React from 'react';
 import './Post.scss';
 
 const Post = ({data}) => {
-    // html 태그까지 출력되는 걸 정규식으로 없애기
-    const htmlReg = /(<([^>]+)>)/gi;
-    // &nbsp; 를 줄바꿈으로 바꾸기
-    const newlineReg = /(&nbsp;)/g;
+    console.log(data);
     return (
         <div className='post_zone inner2'>
             <div className='head_zone'>
@@ -13,14 +10,15 @@ const Post = ({data}) => {
                 <nav>   
                     <span>{data.p_date}</span>
                     <span>|</span>
-                    <span>수정</span>
+                    <span className='click_sp'>수정</span>
                     <span>|</span>
-                    <span>삭제</span>
+                    <span className='click_sp'>삭제</span>
                 </nav>
             </div> 
             <div className='desc_zone'>
-                <img src='./images/img1.jpg' alt=''/>
-                <p>{`${data.p_content}`.replace(htmlReg, '').replace(newlineReg, '')}</p>
+                {/* <img src='./images/img1.jpg' alt=''/> */}
+                {/* 출력할 곳에 angerouslySetInnerHTML={{__html : 넘겨 받을 값}} */}
+                <p>{data.p_content}</p>
             </div>
             <div className='commend_zone'>
                 <nav>

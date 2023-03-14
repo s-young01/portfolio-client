@@ -36,6 +36,8 @@ const WritePage = ({isButtonTrue}) => {
             alert('제목을 입력해주세요.');
             //document.querySelector('.title_input').placeholder.color = 'red';
         }else {
+            // html 형식을 텍스트 형식으로 바꿀 때 dangerouslySetInnerHTML 사용해야 함
+            // 사용하려면 {params: {넘겨줄 값: 넘겨줄 값}}
             axios.post(`${API_URL}/postUpdate`, formData)
             .then(res => {
                 alert('등록되었습니다.');
@@ -45,34 +47,59 @@ const WritePage = ({isButtonTrue}) => {
         }
     }
 
+    // 나가기 버튼 눌렀을 때
+    const useConfirm = (message=null, onConfirm, onCancel) => {
+        if(!onConfirm || typeof onConfirm !== 'function') {
+            return;
+        }
+        if(onCancel && typeof onCancel !== 'function') {
+            return;
+        }
+        const confirmAction = () => {
+            if(window.confirm(message)) {
+                onConfirm();
+            }else {
+                onCancel();
+            }
+        }
+        return confirmAction;
+    }
+    const goConfirm = () => navigate('/posts');
+    const cancleConfirm = () => null;
+    
     return (
         <div className='write'>
             <Header/>
-            <div className='write_zone inner2'>
-                <input className='title_input' type='text' name='title'
-                placeholder='제목을 입력하세요' value={formData.title} onChange={onChange}/>
-                <CKEditor
-                    editor={ ClassicEditor }
-                    data=""
-                    onReady={ editor => {
-                        // You can store the "editor" and use when it is needed.
-                        console.log( 'Editor is ready to use!', editor );
-                    } }
-                    onChange={ ( event, editor ) => {
-                        const data = editor.getData();
-                        console.log( { event, editor, data } );
-                        setFormData({
-                            ...formData,
-                            content: data
-                        });
-                    } }
-                    onBlur={ ( event, editor ) => {
-                        console.log( 'Blur.', editor );
-                    } }
-                    onFocus={ ( event, editor ) => {
-                        console.log( 'Focus.', editor );
-                    } }
-                />
+            <div className='write_zone'>
+                <div className='inner2'>
+                    <input className='title_input' type='text' name='title'
+                    placeholder='제목을 입력하세요' value={formData.title} onChange={onChange}/>
+                    <CKEditor
+                        editor={ ClassicEditor }
+                        data=""
+                        onReady={ editor => {
+                            // You can store the "editor" and use when it is needed.
+                            console.log( 'Editor is ready to use!', editor );
+                        } }
+                        onChange={ ( event, editor ) => {
+                            const data = editor.getData();
+                            console.log( { event, editor, data } );
+                            setFormData({
+                                ...formData,
+                                content: data
+                            });
+                        } }
+                        onBlur={ ( event, editor ) => {
+                            console.log( 'Blur.', editor );
+                        } }
+                        onFocus={ ( event, editor ) => {
+                            console.log( 'Focus.', editor );
+                        } }
+                        locale={{
+                            locale: 'ko',
+                        }}
+                    />
+                </div>
             </div>
             <div className='footer'>
                 <nav className='inner'>
@@ -80,7 +107,12 @@ const WritePage = ({isButtonTrue}) => {
                         <span>맞춤법 검사하기</span>
                         <MdPlaylistAddCheck className='check_icon'/>
                     </Link>
-                    <button onClick={onSubmit}>등록하기</button>
+                    <div className='write_btn'>
+                        <button onClick={onSubmit} className='ok_btn'>등록하기</button>
+                        <button onClick={useConfirm('작성중인 글이 저장되지 않을 수도 있습니다. 정말 나가시겠습니까?',
+                        goConfirm, cancleConfirm)} 
+                        className='exit_btn'>나가기</button>
+                    </div>
                 </nav>
             </div>
         </div>

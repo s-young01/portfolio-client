@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 // map돌려서 화면에 뿌려줄 함수형 컴포넌트 작성
 function Posts({ list }) {
-    // html 태그까지 출력되는 걸 정규식으로 없애기
+    // html 태그 정규식으로 없애기
     const htmlReg = /(<([^>]+)>)/gi;
-    // &nbsp; 를 없애기
+    // &nbsp;(줄바꿈) 없애기
     const newlineReg = /(&nbsp;)/g;
     return(
         <Link to={`/post/${list.p_no}`}>
@@ -32,7 +32,7 @@ const PostsList = ({data}) => {
         <div className='postslist inner2'>
             <h2>전체 글 ({data.length}) </h2>
             <div className='posts_box'>
-                {data.length > 0 ? data.map(d => <Posts key={d.p_no} list={d}/>) 
+                {data.length > 0 ? data.map(d => <Posts key={d.p_no} list={d}/>)
                 : <>
                     <div className='posts'>
                         {/* <div className='img_zone'>
@@ -45,11 +45,12 @@ const PostsList = ({data}) => {
                             </p>
                             <nav>
                                 <span className='bold'>|</span>
-                                <span>Written Forest</span>
+                                <span>Written_Forest</span>
                             </nav>
                         </div>
                     </div>
-                </>}
+                </>
+                }
             </div>
         </div>
     );

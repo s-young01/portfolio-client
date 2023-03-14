@@ -8,11 +8,6 @@ export const setLogin = () => ({ type: SET_LOGIN });
 export const setLogout = () => ({ type: SET_LOGOUT });
 export const setId = (id) => ({ type: SET_USERID, id: id });
 
-// 로그 아웃 시, 홈으로 이동하는 함수
-export const goHome = (navigate) => () => {
-    navigate('/login');
-}
-
 // 초기값
 const initialState = {
     isLogin: false,

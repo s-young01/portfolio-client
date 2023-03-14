@@ -13,7 +13,7 @@ $light-gray: #eee;
 
 .share {
     width: 60px;
-    height: 130px;
+    height: 135px;
     border-radius: 30px;
     background-color: $light-gray;
     position: fixed;
@@ -40,6 +40,12 @@ $light-gray: #eee;
         &:hover {
             box-shadow: 0 0 5px;
         }
+    }
+    .heart_count {
+        position: absolute;
+        font-family: $nomal-font;
+        font-weight: bold;
+        font-size: $small-font;
     }
     .vertical_menu {
         position: fixed;

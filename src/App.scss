@@ -30,51 +30,92 @@ body {
   cursor: default; 
   // 다크모드 버튼
   .mode_btn {
-    button {
-      position: fixed;
-      bottom: 15px;
-      right: 20px;
-      width: 40px;
-      height: 40px;
-      border: 0;
-      outline: 0;
-      background-color: #fff;
-      border: 2px solid #ccc;
-      border-radius: 50%;
-      box-shadow: 2px 2px 5px #ccc;
-      transition: 0.3s;
-      cursor: pointer;
-      .mode_icon {
-          font-size: 18px;
-      }
-      &:hover {
-          background-color: #333;
-          color: #fff;
-      }
+    position: fixed;
+    bottom: 15px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    outline: 0;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px #ccc;
+    transition: 0.3s;
+    cursor: pointer;
+    .mode_icon {
+        font-size: 18px;
+    }
+    &:hover {
+        background-color: #333;
+        color: #fff;
     }
   }
-  .up_btn{
-    button {
-      position: fixed;
-      bottom: 65px;
-      right: 20px;
-      width: 40px;
-      height: 40px;
-      border: 0;
-      outline: 0;
-      background-color: #fff;
-      border: 2px solid #ccc;
-      border-radius: 50%;
-      box-shadow: 2px 2px 5px #ccc;
-      transition: 0.3s;
-      cursor: pointer;
-      .up_icon {
-          font-size: 24px;
-      }
-      &:hover {
-          background-color: #333;
-          color: #fff;
-      }
+  .btn_1 {
+    position: fixed;
+    bottom: 85px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    outline: 0;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px #ccc;
+    transition: 0.3s;
+    cursor: pointer;
+    .mode_icon {
+        font-size: 18px;
+    }
+    &:hover {
+        background-color: #333;
+        color: #fff;
+    }
+  }
+  // 스크롤 올리는 버튼
+  .up_btn {
+    position: fixed;
+    bottom: 65px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    outline: 0;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px #ccc;
+    transition: 0.3s;
+    cursor: pointer;
+    .up_icon {
+        font-size: 24px;
+    }
+    &:hover {
+        background-color: #333;
+        color: #fff;
+    }
+  }
+  .btn_2 {
+    position: fixed;
+    bottom: 135px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    outline: 0;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px #ccc;
+    transition: 0.3s;
+    cursor: pointer;
+    .up_icon {
+      font-size: 24px;
+    }
+    &:hover {
+        background-color: #333;
+        color: #fff;
     }
   }
 }

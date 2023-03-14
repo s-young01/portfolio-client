@@ -19,6 +19,8 @@ function App() {
   // 경로가 posts, post, writepost일 때만 
   // 스크롤 버튼 보이게 만들기
   const [isButton, setIsButton] = useState(false)
+   
+
   const isButtonTrue = () => {
     setIsButton(true);
   }
@@ -29,21 +31,22 @@ function App() {
       top: 0,
       behavior: 'smooth'
     });
-  }
+  } 
+  
+  // 상태관리
+  const [sitePath, setSitePath] = useState('');
+
   return (
     <BrowserRouter>
-      <ScrollTop/>
+      <ScrollTop setSitePath={setSitePath}/>
       <div className="App">
-        <div className='mode_btn'>
-          <button>
-            <TbMoon className='mode_icon'/>
-          </button>
-        </div>
-        {isButton ? <div className='up_btn'>
-          <button onClick={onScroll_Up}>
+        <button className={sitePath === '/writepost' ? 'btn_1' : 'mode_btn'}>
+          <TbMoon className='mode_icon'/>
+        </button>
+        {isButton ?
+          <button onClick={onScroll_Up} className={sitePath === '/writepost' ? 'btn_2' : 'up_btn'}>
               <MdKeyboardArrowUp className='up_icon'/>
-          </button>
-        </div> : null}
+          </button> : null}
         <Routes>
           <Route path='/' element={<MainPage/>}/>
           <Route path='/login' element={<Login/>}/>

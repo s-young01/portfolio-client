@@ -82,5 +82,23 @@ $light-gray: #eee;
                 margin: 3px;
             }
         }
+        .header_login {
+            button {
+                border: 0;
+                outline: 0;
+                background-color: $light-gray;
+                padding: 14px 34px;
+                border-radius: 20px;
+                font-family: $nomal-font;
+                font-weight: bold;
+                transition: 0.3s;
+                box-shadow: 3px 3px rgba($color: $dark, $alpha: 1.0);
+                letter-spacing: 1.2px;
+                cursor: pointer;
+                &:hover {
+                    background-color: $gray;
+                }
+            }
+        }
     }
 }

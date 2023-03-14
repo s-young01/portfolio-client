@@ -15,7 +15,7 @@ $light-gray: #eee;
     margin-top: 120px;
     height: auto;
     .head_zone {
-        margin-bottom: 60px;
+        margin-bottom: 30px;
         padding: 30px 20px 0 20px;
         text-align: center;
         border-bottom: 1px solid $gray;
@@ -30,19 +30,15 @@ $light-gray: #eee;
             margin: 20px 0 30px 0;
             span {
                 padding: 0 4px;
-                &:nth-child(5) {
-                    cursor: pointer;
-                }
-                &:last-child {
-                    border-right: none;
-                    cursor: pointer;
-                }
+            }
+            .click_sp {
+                cursor: pointer;
             }
         }
     }
     .desc_zone {
         height: auto;
-        padding: 0 20px 60px 20px;
+        padding: 0 20px 30px 20px;
         line-height: 2;
         letter-spacing: 1.2px;
         font-family: $nomal-font;

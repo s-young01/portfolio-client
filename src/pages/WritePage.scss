@@ -16,7 +16,8 @@ $light-gray: #eee;
     margin-top: 80px;
     .write_zone {
         width: 100%;
-        height: auto;
+        height: 836px;
+        overflow: scroll;
         .title_input {
             width: 100%;
             padding: 20px 15px;
@@ -95,17 +96,27 @@ $light-gray: #eee;
                     margin: 0 20px 0 2px;
                 }
             }
-            button {
-                font-family: $nomal-font;
-                font-weight: bold;
-                letter-spacing: 1px;
-                border: none;
-                background-color: $dark;
-                color: #fff;
-                padding: 12px 28px;
-                border-radius: 20px;
-                transition: 0.3s;
-                cursor: pointer;
+            .write_btn {
+                button {
+                    font-family: $nomal-font;
+                    font-weight: bold;
+                    letter-spacing: 1px;
+                    border: none;
+                    border-radius: 20px;
+                    transition: 0.3s;
+                    cursor: pointer;
+                }
+                .ok_btn {
+                    background-color: $dark;
+                    color: #fff;
+                    padding: 14px 28px;
+                }
+                .exit_btn {
+                    background-color: #fff;
+                    color: $dark;
+                    padding: 14px 28px;
+                    margin-left: 16px;
+                }
             }
         }
     }

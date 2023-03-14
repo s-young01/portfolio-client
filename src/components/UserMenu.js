@@ -1,9 +1,22 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { setLogout } from '../modules/LoginCheck';
+import { removeCookie } from '../utill/cookie';
 import './UserMenu.scss';
 
 const UserMenu = () => {
+    const navigate = useNavigate();
     const { pathname } = useLocation();
+    const dispatch = useDispatch();
+    // 로그아웃
+    const logout_Click = () => {
+        removeCookie('userid');
+        removeCookie('usernickname');
+        dispatch(setLogout());
+        alert('로그아웃 되었습니다.');
+        navigate('/posts');
+    }
     return (
         <ul className='user_menu'>
             <li className='user_li'>
@@ -26,7 +39,7 @@ const UserMenu = () => {
                 </Link>
             </li>
             <li className='user_li'>
-                <span>로그아웃</span>
+                <span onClick={logout_Click}>로그아웃</span>
             </li>
         </ul>
     );

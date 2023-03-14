@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import '../../App.scss'
 import { API_URL } from '../../config/config';
-import { goHome, setLogin } from '../../modules/LoginCheck';
+import { setLogin } from '../../modules/LoginCheck';
 import { setCookie } from '../../utill/cookie';
 import './Login.scss';
 
@@ -37,12 +37,14 @@ const Login = () => {
                 if(m_id && m_nickname) {
                     alert('로그인 되었습니다.');
                     let expires = new Date();
-                    expires.setMinutes(expires.getMinutes()+2);
-                    setCookie('userid', `${m_id}`, {path: '/posts', expires});
-                    setCookie('usernickname', `${m_nickname}`, {path: '/posts', expires});
+                    expires.setMinutes(expires.getMinutes()+30);
+                    setCookie('userid', `${m_id}`, {path: '/', expires});
+                    setCookie('usernickname', `${m_nickname}`, {path: '/', expires});
                     dispatch(setLogin());
-                    dispatch(goHome(navigate));
-                }
+                    navigate('/posts');
+                }else {
+                    alert('아이디나 비밀번호를 확인해주세요.');
+                }  
             })
             .catch(e => console.log(e));
         }
