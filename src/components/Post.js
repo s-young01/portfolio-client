@@ -2,7 +2,6 @@ import React from 'react';
 import './Post.scss';
 
 const Post = ({data}) => {
-    console.log(data);
     return (
         <div className='post_zone inner2'>
             <div className='head_zone'>
@@ -16,9 +15,7 @@ const Post = ({data}) => {
                 </nav>
             </div> 
             <div className='desc_zone'>
-                {/* <img src='./images/img1.jpg' alt=''/> */}
-                {/* 출력할 곳에 angerouslySetInnerHTML={{__html : 넘겨 받을 값}} */}
-                <p>{data.p_content}</p>
+            <div dangerouslySetInnerHTML={{ __html: data.p_content.replace(/\n/g, '<br>') }} />
             </div>
             <div className='commend_zone'>
                 <nav>

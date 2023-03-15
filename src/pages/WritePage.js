@@ -95,9 +95,6 @@ const WritePage = ({isButtonTrue}) => {
                         onFocus={ ( event, editor ) => {
                             console.log( 'Focus.', editor );
                         } }
-                        locale={{
-                            locale: 'ko',
-                        }}
                     />
                 </div>
             </div>
