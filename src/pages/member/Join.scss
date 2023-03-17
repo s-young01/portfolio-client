@@ -107,8 +107,8 @@ $light-gray: #eee;
       justify-content: center;
       align-items: center;
       button {
-        margin: 0 20px;
-        padding: 10px 20px;
+        margin: 0 15px;
+        padding: 14px 30px;
         font-family: $nomal-font;
         font-weight: bold;
         letter-spacing: 1.2px;
@@ -117,7 +117,6 @@ $light-gray: #eee;
         background-color: #fff;
         border-radius: 5px;
         background-color: $light-gray;
-        box-shadow: 2px 2px rgba($color: $dark, $alpha: 1.0);
         transition: 0.3s;
         cursor: pointer;
         &:hover {

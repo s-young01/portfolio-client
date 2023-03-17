@@ -37,7 +37,7 @@ const Login = () => {
                 if(m_id && m_nickname) {
                     alert('로그인 되었습니다.');
                     let expires = new Date();
-                    expires.setMinutes(expires.getMinutes()+30);
+                    expires.setMinutes(expires.getMinutes()+720);
                     setCookie('userid', `${m_id}`, {path: '/', expires});
                     setCookie('usernickname', `${m_nickname}`, {path: '/', expires});
                     dispatch(setLogin());

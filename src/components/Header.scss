@@ -36,7 +36,6 @@ $light-gray: #eee;
                 height: 45px;
                 border-radius: 28px;
                 padding: 0 8px;
-                background-color: $dark;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -46,7 +45,6 @@ $light-gray: #eee;
                     outline: none;
                     padding: 5px;
                     margin-left: 5px;
-                    background-color: $dark;
                     color: #fff;
                 }
                 ::-webkit-input-placeholder {

@@ -16,7 +16,7 @@ function Posts({ list }) {
                 </div>
                 <div className='text_zone'>
                     <h3>{`${list.p_title}`}</h3>
-                    <p>{`${list.p_content}`.replace(htmlReg, '').replace(newlineReg, '')}</p>
+                    <p>{`${list.p_content}`.replace(htmlReg, '').replace(newlineReg, ' ')}</p>
                     <nav>
                         <span className='bold'>|</span>
                         <span>{`${list.p_date}`}</span>

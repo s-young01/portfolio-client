@@ -52,6 +52,8 @@ $light-gray: #eee;
                 }
                 input[type='password'] {
                     font-family: none;
+                    font-size: $midium-font;
+                    letter-spacing: 3px;
                 }
             }
             .login_btns {
@@ -62,9 +64,8 @@ $light-gray: #eee;
                     border: none;
                     border-radius: 5px;
                     background-color: $light-gray;
-                    box-shadow: 3px 3px rgba($color: $dark, $alpha: 1.0);
                     padding: 16px 48px;
-                    margin: 0 8px;
+                    margin: 0 15px;
                     transition: 0.3s;
                     cursor: pointer;
                     &:hover {

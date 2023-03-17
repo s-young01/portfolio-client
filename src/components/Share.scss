@@ -15,7 +15,6 @@ $light-gray: #eee;
     width: 60px;
     height: 135px;
     border-radius: 30px;
-    background-color: $light-gray;
     position: fixed;
     top: 33%;
     left: 18%;
@@ -27,18 +26,18 @@ $light-gray: #eee;
         width: 42px;
         height: 42px;
         border-radius: 50%;
-        background-color: #fff;
         display: flex;
         justify-content: center;
         align-items: center;
-        box-shadow: 0 0 2px;
+        box-shadow: 0 0 2px $dark;
         transition: 0.3s;
         cursor: pointer;
         .share_icon {
             font-size: $midium-font;
+            color: $dark;
         }
         &:hover {
-            box-shadow: 0 0 5px;
+            box-shadow: 0 0 5px $dark;
         }
     }
     .heart_count {
@@ -63,10 +62,10 @@ $light-gray: #eee;
                 font-weight: bold;
                 font-size: $small-font;
                 letter-spacing: 1.5px;
-                box-shadow: 0 0 2px;
+                border: 1px solid $light-gray;
                 cursor: pointer;
                 &:hover {
-                    box-shadow: 0 0 5px;
+                    box-shadow: 0 0 5px $gray;
                 }
             }
             .vertical1 {
@@ -80,6 +79,7 @@ $light-gray: #eee;
                     opacity: 0;
                     transition: 0.3s;
                     font-size: $midium-font;
+                    color: #67D5B5;
                 }
                 span {
                     position: absolute;
@@ -107,6 +107,7 @@ $light-gray: #eee;
                     opacity: 0;
                     transition: 0.3s;
                     font-size: $midium-font;
+                    color: #F16B6F;
                 }
                 span {
                     position: absolute;
@@ -141,23 +142,25 @@ $light-gray: #eee;
                 font-weight: bold;
                 font-size: $small-font;
                 letter-spacing: 1.5px;
-                box-shadow: 0 0 2px;
+                border: 1px solid $light-gray;
                 cursor: pointer;
                 &:hover {
-                    box-shadow: 0 0 5px;
+                    box-shadow: 0 0 5px $gray;
                 }
                 .share_icon2 {
                     font-size: $big-font;
+                    color: $dark;
                 }
             }
             .react-share__ShareButton {
                 position: fixed;
                 top: 40.2%;
                 left: 21.8%;
+                border: 1px solid $light-gray !important;
                 transition: 0.3s;
                 background-color: #fff !important;
                 &:hover {
-                    background-color: rgb(28, 208, 253) !important;
+                    background-color: #47b8e0 !important;
                 }
             }
             .share2 {
@@ -166,7 +169,7 @@ $light-gray: #eee;
                 left: 20.5%;
                 transition: 0.3s;
                 &:hover {
-                    background-color: #fae100;
+                    background-color: #ffc952;
                 }
             }
             .share3 {
@@ -175,7 +178,7 @@ $light-gray: #eee;
                 left: 17.5%;
                 transition: 0.3s;
                 &:hover {
-                    background-color: rgb(199, 156, 199);
+                    background-color: #d9e1e8;
                 }
             }
         }

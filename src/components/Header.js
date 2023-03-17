@@ -24,7 +24,6 @@ const Header = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        
         if(user_nickname) {
             dispatch(setLogin());
         }

@@ -15,7 +15,7 @@ const UserMenu = () => {
         removeCookie('usernickname');
         dispatch(setLogout());
         alert('로그아웃 되었습니다.');
-        navigate('/posts');
+        navigate('/');
     }
     return (
         <ul className='user_menu'>

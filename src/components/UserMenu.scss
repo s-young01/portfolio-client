@@ -32,6 +32,7 @@ $light-gray: #eee;
             border-top: 1px solid $light-gray;
         }
         span {
+            color: $dark;
             cursor: pointer;
             &:hover {
                 text-decoration: underline;

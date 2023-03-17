@@ -34,10 +34,8 @@ const WritePage = ({isButtonTrue}) => {
         e.preventDefault();
         if(formData.title === '' ) {
             alert('제목을 입력해주세요.');
-            //document.querySelector('.title_input').placeholder.color = 'red';
+            // document.querySelector('.title_input').placeholder.color = 'red';
         }else {
-            // html 형식을 텍스트 형식으로 바꿀 때 dangerouslySetInnerHTML 사용해야 함
-            // 사용하려면 {params: {넘겨줄 값: 넘겨줄 값}}
             axios.post(`${API_URL}/postUpdate`, formData)
             .then(res => {
                 alert('등록되었습니다.');

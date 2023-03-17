@@ -37,18 +37,13 @@ body {
     height: 40px;
     border: 0;
     outline: 0;
-    background-color: #fff;
-    border: 2px solid #ccc;
+    border: 1px solid #eee;
     border-radius: 50%;
     box-shadow: 2px 2px 5px #ccc;
     transition: 0.3s;
     cursor: pointer;
     .mode_icon {
-        font-size: 18px;
-    }
-    &:hover {
-        background-color: #333;
-        color: #fff;
+        font-size: 20px;
     }
   }
   .btn_1 {
@@ -59,18 +54,13 @@ body {
     height: 40px;
     border: 0;
     outline: 0;
-    background-color: #fff;
-    border: 2px solid #ccc;
+    border: 1px solid #eee;
     border-radius: 50%;
     box-shadow: 2px 2px 5px #ccc;
     transition: 0.3s;
     cursor: pointer;
     .mode_icon {
-        font-size: 18px;
-    }
-    &:hover {
-        background-color: #333;
-        color: #fff;
+        font-size: 20px;
     }
   }
   // 스크롤 올리는 버튼
@@ -82,18 +72,13 @@ body {
     height: 40px;
     border: 0;
     outline: 0;
-    background-color: #fff;
-    border: 2px solid #ccc;
+    border: 1px solid #eee;
     border-radius: 50%;
     box-shadow: 2px 2px 5px #ccc;
     transition: 0.3s;
     cursor: pointer;
     .up_icon {
-        font-size: 24px;
-    }
-    &:hover {
-        background-color: #333;
-        color: #fff;
+        font-size: 26px;
     }
   }
   .btn_2 {
@@ -104,18 +89,13 @@ body {
     height: 40px;
     border: 0;
     outline: 0;
-    background-color: #fff;
-    border: 2px solid #ccc;
+    border: 1px solid #eee;
     border-radius: 50%;
     box-shadow: 2px 2px 5px #ccc;
     transition: 0.3s;
     cursor: pointer;
     .up_icon {
-      font-size: 24px;
-    }
-    &:hover {
-        background-color: #333;
-        color: #fff;
+      font-size: 26px;
     }
   }
 }
