@@ -33,18 +33,19 @@ const Login = () => {
         }else {
             axios.post(`${API_URL}/login`, loginData)
             .then(result => {
+                console.log(result)
                 const {m_id, m_nickname} = result.data[0];
-                if(m_id && m_nickname) {
+                if(result.data === "실패") {
+                    alert('아이디나 비밀번호를 확인해주세요.');
+                }else if(m_id && m_nickname) {
                     alert('로그인 되었습니다.');
                     let expires = new Date();
                     expires.setMinutes(expires.getMinutes()+720);
                     setCookie('userid', `${m_id}`, {path: '/', expires});
                     setCookie('usernickname', `${m_nickname}`, {path: '/', expires});
                     dispatch(setLogin());
-                    navigate('/posts');
-                }else {
-                    alert('아이디나 비밀번호를 확인해주세요.');
-                }  
+                    navigate(`/posts/${m_nickname}`);
+                } 
             })
             .catch(e => console.log(e));
         }

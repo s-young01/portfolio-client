@@ -211,8 +211,8 @@ function App() {
             <Route path='/find_id' element={<FindID/>}/>
             <Route path='/find_pw' element={<FindPW/>}/>
             <Route path='/new_pw' element={<NewPW/>}/>
-            <Route path='/posts' element={<PostsPage isButtonTrue={isButtonTrue}/>}/>
-            <Route path='/post/:no' element={<PostPage isButtonTrue={isButtonTrue}/>}/>
+            <Route path='/posts/:userpath' element={<PostsPage isButtonTrue={isButtonTrue}/>}/>
+            <Route path='/post/:userpath/:no' element={<PostPage isButtonTrue={isButtonTrue}/>}/>
             <Route path='/writepost' element={<WritePage isButtonTrue={isButtonTrue}/>}/>
             <Route path='/todolist' element={<TodoListPage/>}/>
             <Route path='/profile' element={<ProfilePage/>}/>

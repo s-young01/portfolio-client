@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { API_URL } from '../../config/config';
+import { setId } from '../../modules/LoginCheck';
 import './Find.scss';
 
 const FindPW = () => {
@@ -23,7 +24,10 @@ const FindPW = () => {
         e.preventDefault();
         axios.post(`${API_URL}/findpw`, formData)
         .then(res => {
-            setFindPw(res.data);
+            console.log(res)
+            setFindPw(res.data.m_pwch);
+            console.log(res.data.m_id)
+            setId(res.data.m_id)
         })
         .catch(e => console.log(e))
     }

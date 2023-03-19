@@ -7,7 +7,8 @@ import { API_URL } from '../../config/config';
 
 const NewPW = () => {
     const navigate = useNavigate();
-    const {updateId} = useSelector(state => state.loginCheck.updateId);
+    const updateId = useSelector(state => state.loginCheck.updateId);
+    console.log(updateId)
 
     const [changePw, setChangePw] = useState({
         newpw: '',
@@ -27,7 +28,7 @@ const NewPW = () => {
         e.preventDefault();
         if(changePw.newpw !== '' && changePw.newpwCh !== '') {
             if(changePw.newpw === changePw.newpwCh) {
-                axios.post(`${API_URL}/newpw`, changePw)
+                axios.patch(`${API_URL}/newpw`, changePw)
                 .then(res => {
                     console.log(res);
                     if(res.data) {

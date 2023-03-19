@@ -32,25 +32,7 @@ const PostsList = ({data}) => {
         <div className='postslist inner2'>
             <h2>전체 글 ({data.length}) </h2>
             <div className='posts_box'>
-                {data.length > 0 ? data.map(d => <Posts key={d.p_no} list={d}/>)
-                : <>
-                    <div className='posts'>
-                        {/* <div className='img_zone'>
-                            <img src='./images/img1.jpg' alt=''/>
-                        </div> */}
-                        <div className='text_zone'>
-                            <h3>당신의 첫 게시글을 작성해주세요!</h3>
-                            <p>Written Forest에 오신 걸 환영합니다<br/>
-                                상단 왼쪽 메뉴 버튼을 눌러 글쓰기를 시작해보세요
-                            </p>
-                            <nav>
-                                <span className='bold'>|</span>
-                                <span>Written_Forest</span>
-                            </nav>
-                        </div>
-                    </div>
-                </>
-                }
+                {data.map(d => <Posts key={d.p_no} list={d}/>)}
             </div>
         </div>
     );

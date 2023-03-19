@@ -81,13 +81,6 @@ const Join = () => {
         .catch(e => console.log(e))
     }
 
-    // 정규표현식
-    // const nameReg = /^[a-zA-Z가-힣]{2,12}$/;
-    // const nicknameReg = /^[a-zA-Z가-힣]{2,12}$/;
-    // const emailReg = /^[a-zA-Z0-9]+$/;
-    // const passReg = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%&*])[A-Za-z\d!@#$%&*]{8,16}$/;
-    // const phoneReg = /^01(?:0|1|[6-9])(?:\d{4})\d{4}$/;
-
     return (
         <div className='join'>
             <h2>JOIN</h2>
