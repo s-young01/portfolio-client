@@ -9,7 +9,7 @@ import axios from 'axios';
 const PostContainer = () => {
     // 콜백함수
     const postData = async () => {
-        const data = await axios.get(`${API_URL}/post/${userpath}/${no}`);
+        const data = await axios.get(`${API_URL}/post/${no}/${userpath}`);
         return data;
     }
 

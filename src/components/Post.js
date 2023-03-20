@@ -1,12 +1,17 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import './Post.scss';
 
 const Post = ({data}) => {
+    const isLogin = useSelector(state => state.loginCheck.isLogin);
     return (
         <div className='post_zone inner2'>
             <div className='head_zone'>
                 <h1>{data.p_title}</h1>
-                <nav>   
+                <nav>
+                    {isLogin ? null 
+                    : <><span>{data.p_writer}</span>
+                    <span>|</span></> }   
                     <span>{data.p_date}</span>
                     <span>|</span>
                     <span className='click_sp'>수정</span>

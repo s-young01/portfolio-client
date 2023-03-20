@@ -106,7 +106,7 @@ $light-gray: #eee;
                     transition: 0.3s;
                     cursor: pointer;
                 }
-                .ok_btn {
+                .complate {
                     background-color: $dark;
                     color: #fff;
                     padding: 14px 28px;
@@ -121,6 +121,212 @@ $light-gray: #eee;
                     margin-left: 16px;
                     &:hover {
                         background-color: #F16B6F;
+                    }
+                }
+            }
+        }
+    }
+    .open_menu {
+        width: 100%;
+        height: 400px;
+        background-color: #f7f7f7;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        transition: 0.5s;
+        font-family: $nomal-font;
+        font-weight: bold;
+        .submit_list {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            .post_info {
+                width: 65%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 20px;
+                span {
+                    font-size: 18px;
+                }
+                .space_sp {
+                    margin-right: 5px;
+                }
+                .title_info {
+                    height: 20%;
+                }
+                .able_info {
+                    height: 20%;
+                }
+                .submit_btn {
+                    width: 100%;
+                    height: 20%;
+                    text-align: center;
+                    line-height: 80px;
+                }
+            }
+            .reper_img {
+                width: 35%;
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                span {
+                    font-size: 18px;
+                }
+                .space_sp {
+                    margin-right: 5px;
+                }
+                .addimg_box {
+                    height: 70%;
+                    border: 1px solid $gray;
+                    border-radius: 2px;
+                    background-color: #fff;
+                    position: relative;
+                    .img_icon {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        font-size: 82px;
+                        color: $gray;
+                    }
+                }
+                .upload_zone {
+                    width: 100%;
+                    height: 40px;
+                    display: flex;
+                    justify-content: space-between;
+                    input[type='file'] {
+                        position: absolute;
+                        width: 0;
+                        height: 0;
+                        padding: 0;
+                        overflow: hidden;
+                        border: 0;
+                    }
+                    label {
+                        width: 25%;
+                        display: inline-block;
+                        border-radius: 2px;
+                        font-size: 12px;
+                        line-height: 40px;
+                        color: #fff;
+                        background-color: $dark;
+                        padding-left: 14.5px;
+                        cursor: pointer;
+                    }
+                    .upload_input {
+                        display: inline-block;
+                        padding: 5px;
+                        vertical-align: middle;
+                        border: 1px solid #dddddd;
+                        width: 72%;
+                        color: #999999;
+                        outline: 0;
+                        cursor: default;
+                    }
+                }
+            }
+        }
+    }
+    .close_menu {
+        width: 100%;
+        height: 400px;
+        background-color: #f7f7f7;
+        position: fixed;
+        bottom: -400px;
+        left: 0;
+        transition: 0.5s;
+        .submit_list {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            .post_info {
+                width: 65%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 20px;
+                span {
+                    font-size: 18px;
+                }
+                .space_sp {
+                    margin-right: 5px;
+                }
+                .title_info {
+                    height: 20%;
+                }
+                .able_info {
+                    height: 20%;
+                }
+                .submit_btn {
+                    width: 100%;
+                    height: 20%;
+                    text-align: center;
+                    line-height: 80px;
+                }
+            }
+            .reper_img {
+                width: 35%;
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                span {
+                    font-size: 18px;
+                }
+                .space_sp {
+                    margin-right: 5px;
+                }
+                .addimg_box {
+                    height: 70%;
+                    border: 1px solid $gray;
+                    border-radius: 2px;
+                    background-color: #fff;
+                    position: relative;
+                    .img_icon {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        font-size: 82px;
+                        color: $gray;
+                    }
+                }
+                .upload_zone {
+                    width: 100%;
+                    height: 40px;
+                    display: flex;
+                    justify-content: space-between;
+                    input[type='file'] {
+                        position: absolute;
+                        width: 0;
+                        height: 0;
+                        padding: 0;
+                        overflow: hidden;
+                        border: 0;
+                    }
+                    label {
+                        width: 25%;
+                        display: inline-block;
+                        border-radius: 2px;
+                        font-size: 12px;
+                        line-height: 40px;
+                        color: #fff;
+                        background-color: $dark;
+                        padding-left: 14.5px;
+                        cursor: pointer;
+                    }
+                    .upload_input {
+                        display: inline-block;
+                        padding: 5px;
+                        vertical-align: middle;
+                        border: 1px solid #dddddd;
+                        width: 72%;
+                        color: #999999;
+                        outline: 0;
+                        cursor: default;
                     }
                 }
             }
