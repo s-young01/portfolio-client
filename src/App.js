@@ -18,6 +18,7 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { setLogin } from './modules/LoginCheck';
 import NewPW from './pages/member/NewPW';
+import EditPostContainer from './container/EditPostContainer';
 
 // 다크모드 만들기
 const lightTheme = {
@@ -214,6 +215,7 @@ function App() {
             <Route path='/posts/:userpath' element={<PostsPage isButtonTrue={isButtonTrue}/>}/>
             <Route path='/post/:no/:userpath' element={<PostPage isButtonTrue={isButtonTrue}/>}/>
             <Route path='/writepost' element={<WritePage isButtonTrue={isButtonTrue}/>}/>
+            <Route path='/modifypost/:no' element={<EditPostContainer isButtonTrue={isButtonTrue}/>}/>
             <Route path='/todolist' element={<TodoListPage/>}/>
             <Route path='/profile' element={<ProfilePage/>}/>
           </Routes>

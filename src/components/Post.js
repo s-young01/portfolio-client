@@ -1,9 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { getCookie } from '../utill/cookie';
 import './Post.scss';
 
 const Post = ({data}) => {
     const isLogin = useSelector(state => state.loginCheck.isLogin);
+    const user_nick = getCookie('usernickname');
+
     return (
         <div className='post_zone inner2'>
             <div className='head_zone'>
@@ -13,10 +17,12 @@ const Post = ({data}) => {
                     : <><span>{data.p_writer}</span>
                     <span>|</span></> }   
                     <span>{data.p_date}</span>
+                    {isLogin && user_nick ?
+                    <><span>|</span>
+                    <Link to={`/modifypost/${data.p_no}`}><span className='click_sp'>수정</span></Link>
                     <span>|</span>
-                    <span className='click_sp'>수정</span>
-                    <span>|</span>
-                    <span className='click_sp'>삭제</span>
+                    <span className='click_sp'>삭제</span></>
+                    : null}
                 </nav>
             </div> 
             <div className='desc_zone'>

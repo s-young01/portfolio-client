@@ -31,7 +31,7 @@ const Header = () => {
     return (
         <div className='header'>
             <div className='inner'>
-                <h2><Link to='/posts'>{isLogin ? user_nickname :
+                <h2><Link to={`/posts/${user_nickname}`}>{isLogin ? user_nickname :
                 <Link to='/'>Written_Forest</Link>}</Link></h2>
                 <div className='search_zone'>
                     {pathname === '/writepost' ? null

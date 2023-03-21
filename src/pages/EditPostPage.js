@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import { MdPlaylistAddCheck } from "react-icons/md";
@@ -10,25 +10,26 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { getCookie } from '../utill/cookie';
 import { ImImages } from "react-icons/im";
 
-const WritePage = ({isButtonTrue}) => {
+const EditPostPage = ({isButtonTrue, data}) => {
     const navigate = useNavigate();
     useEffect(()=>{
         isButtonTrue();
     },[isButtonTrue]);
 
-    // 글 등록 상태관리
-    const [formData, setFormData] = useState({
-        title: '',
-        content: '',
-        img: '',
+    console.log(data);
+
+    // 글 수정 상태관리
+    const [isEditData, setEditData] = useState({
+        title: `${data.p_title}`,
+        content: `${data.p_content}`,
         writer: getCookie('usernickname')
     });
 
-    // change 이벤트 
+    // change 이벤트
     const onChange = (e) => {
         const {name, value} = e.target;
-        setFormData({
-            ...formData,
+        setEditData({
+            ...isEditData,
             [name]: value
         });
     }
@@ -46,8 +47,8 @@ const WritePage = ({isButtonTrue}) => {
             headers: {'Content-Type': 'multipart/formdata'}
         })
         .then(res => {
-            setFormData({
-                ...formData,
+            setEditData({
+                ...isEditData,
                 [name]: res.data.imgUrl
             });
         })
@@ -60,7 +61,7 @@ const WritePage = ({isButtonTrue}) => {
      // 완료버튼 눌렀을 때
      const click_Complate = () => {
         // 여기도 제목이 빈문자열이면 알림창
-        if(formData.title === '') {
+        if(isEditData.title === '') {
             alert('제목을 입력해주세요.');
             setIsMenu(false);
         }else {
@@ -72,21 +73,15 @@ const WritePage = ({isButtonTrue}) => {
         setIsMenu(false);
     }
 
-    // 폼 전송 이벤트
-    const onSubmit = (e) => {
-        e.preventDefault();
-        if(formData.title === '' ) {
-            alert('제목을 입력해주세요.');
-            // document.querySelector('.title_input').placeholder.color = 'red';
-        }else {
-            axios.post(`${API_URL}/postUpdate`, formData)
-            .then(res => {
-                alert('등록되었습니다.');
-                setIsMenu(false);
-                navigate(`/posts/${formData.writer}`);
-            })
-            .catch(e => console.log(e));
-        }
+    // 전송 이벤트
+    const onSubmit = () => {
+        axios.patch(`${API_URL}/modifypost`, isEditData)
+        .then(res => {
+            console.log(res);
+            alert('수정되었습니다.');
+            navigate(`/post/${isEditData.writer}`)
+        })
+        .catch(e => console.log(e));
     }
 
     // 나가기 버튼 눌렀을 때
@@ -108,14 +103,13 @@ const WritePage = ({isButtonTrue}) => {
     }
     const goConfirm = () => navigate(-1);
     const cancleConfirm = () => null;
-    
     return (
         <div className='write'>
             <Header/>
             <div className='write_zone'>
                 <div className='inner2'>
                     <input className='title_input' type='text' name='title'
-                    placeholder='제목을 입력하세요' value={formData.title} onChange={onChange}/>
+                    placeholder='제목을 입력하세요' value={isEditData.title} onChange={onChange}/>
                     <CKEditor
                         editor={ ClassicEditor }
                         data=""
@@ -126,8 +120,8 @@ const WritePage = ({isButtonTrue}) => {
                         onChange={ ( event, editor ) => {
                             const data = editor.getData();
                             console.log( { event, editor, data } );
-                            setFormData({
-                                ...formData,
+                            setEditData({
+                                ...isEditData,
                                 content: data
                             });
                         } }
@@ -148,7 +142,7 @@ const WritePage = ({isButtonTrue}) => {
                     </Link>
                     <div className='write_btn'>
                         <button className='complate' onClick={click_Complate}>완료</button>
-                        <button onClick={useConfirm('작성중인 글이 저장되지 않을 수도 있습니다. 정말 나가시겠습니까?',
+                        <button onClick={useConfirm('변경사항이 저장되지 않을 수도 있습니다. 정말 나가시겠습니까?',
                         goConfirm, cancleConfirm)} 
                         className='exit_btn'>나가기</button>
                     </div>
@@ -160,7 +154,7 @@ const WritePage = ({isButtonTrue}) => {
                         <nav className='title_info'>
                             <span className='space_sp'>|</span>
                             <span>제목</span>
-                            <p>{formData.title}</p>
+                            <p>{isEditData.title}</p>
                         </nav>
                         <nav className='able_info'>
                             <span className='space_sp'>|</span>
@@ -195,4 +189,4 @@ const WritePage = ({isButtonTrue}) => {
     );
 };
 
-export default WritePage;
+export default EditPostPage;
