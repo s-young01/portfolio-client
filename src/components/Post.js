@@ -1,13 +1,32 @@
+import axios from 'axios';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { API_URL } from '../config/config';
 import { getCookie } from '../utill/cookie';
 import './Post.scss';
+import WriteCommend from './WriteCommend';
 
 const Post = ({data}) => {
     const isLogin = useSelector(state => state.loginCheck.isLogin);
     const user_nick = getCookie('usernickname');
 
+    const no = data.p_no;
+    const navigate = useNavigate();
+    
+    // 게시글 삭제 버튼
+    const postDelete = () => {
+        if(window.confirm('이 글 및 이미지 파일이 완전히 삭제됩니다. 삭제하시겠습니까?')) {
+            axios.delete(`${API_URL}/delatepost/${no}`)
+            .then(res => {
+                alert('삭제되었습니다.');
+                navigate(-1);
+            })
+            .catch(e => console.log(e));
+        }else {
+            return null;
+        }
+    }
     return (
         <div className='post_zone inner2'>
             <div className='head_zone'>
@@ -21,23 +40,15 @@ const Post = ({data}) => {
                     <><span>|</span>
                     <Link to={`/modifypost/${data.p_no}`}><span className='click_sp'>수정</span></Link>
                     <span>|</span>
-                    <span className='click_sp'>삭제</span></>
+                    <span className='click_sp' onClick={postDelete}>삭제</span></>
                     : null}
                 </nav>
             </div> 
             <div className='desc_zone'>
             <div dangerouslySetInnerHTML={{ __html: data.p_content.replace(/\n/g, '<br>') }} />
             </div>
-            <div className='commend_zone'>
-                <nav>
-                    <span>댓글</span>
-                    <span className='commend_count'>0</span>
-                </nav>
-                <textarea placeholder='댓글을 입력해주세요'/>
-                <nav className='commend_btn'>
-                    <button>입력</button>
-                </nav>
-            </div>
+            {/* 댓글 컴포넌트 자리 */}
+            <WriteCommend postno={data.p_no}/>
         </div>
     );
 };

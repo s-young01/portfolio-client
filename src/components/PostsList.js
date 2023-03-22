@@ -35,9 +35,6 @@ const PostsList = ({data}) => {
                 {data.length > 0 ? data.map(d => <Posts key={d.p_no} list={d}/>)
                 : <>
                     <div className='posts'>
-                        {/* <div className='img_zone'>
-                            <img src='./images/img1.jpg' alt=''/>
-                        </div> */}
                         <div className='text_zone'>
                             <h3>당신의 첫 게시글을 작성해주세요!</h3>
                             <p>Written Forest에 오신 걸 환영합니다<br/>

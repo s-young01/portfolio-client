@@ -55,37 +55,65 @@ $light-gray: #eee;
         flex-direction: column;
         font-family: $nomal-font;
         font-weight: bold;
-        .commend_count {
-            padding: 0 3px;
+        .commend_open {
+            display: flex;
+            align-items: center;
+            .commend_count {
+                margin: 0 3px;
+            }
         }
-        textarea {
-            height: 100px;
-            border: 0;
-            outline: 0;
-            resize: none;
-            border: 1px solid $light-gray;
-            border-radius: 3px;
-            padding: 10px;
-            margin: 15px 0;
-            font-family: $nomal-font;
-            letter-spacing: 1.2px;
-        }
-        .commend_btn {
-            text-align: end;
-            button {
-                padding: 12px 24px;
-                border: 0;
-                outline: 0;
+        .commend_list {
+            width: 100%;
+            height: auto;
+            margin-top: 10px;
+            transition: 0.3s;
+            color: $dark;
+            li {
+                width: 100%;
+                height: auto;
                 background-color: $light-gray;
                 border-radius: 5px;
-                font-family: $nomal-font;
-                font-weight: bold;
-                letter-spacing: 1.2px;
-                transition: 0.3s;
-                cursor: pointer;
-                &:hover {
-                    background-color: $gray;
+                margin: 10px 0;
+                padding: 15px 10px;
+                .commend_info {
+                    display: flex;
+                    align-items: center;
+                    img {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        border: 1px solid $gray;
+                    }
+                    span {
+                        margin-left: 8px;
+                    }
                 }
+                .commend {
+                    margin: 15px 0 10px 0;
+                    padding: 0 10px;
+                    p {
+                        font-size: 14px;
+                        font-weight: lighter;
+                        line-height: 1.5;
+                    }
+                    
+                }
+                .commend_modify {
+                    font-size: $small-font;
+                    text-align: end;
+                    color: #555;
+                    span {
+                        padding-left: 5px;
+                    }
+                }
+            }
+        }
+        .close_list {
+            height: 0;
+            transition: 0.3s;
+            li {
+                height: 0;
+                opacity: 0;
             }
         }
     }

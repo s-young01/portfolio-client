@@ -2,10 +2,11 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { setLogout } from '../modules/LoginCheck';
-import { removeCookie } from '../utill/cookie';
+import { getCookie, removeCookie } from '../utill/cookie';
 import './UserMenu.scss';
 
 const UserMenu = () => {
+    const user_nick = getCookie('usernickname');
     const navigate = useNavigate();
     const { pathname } = useLocation();
     const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const UserMenu = () => {
         <ul className='user_menu'>
             <li className='user_li'>
                 {pathname === '/writepost' ?
-                <Link to='/posts'>
+                <Link to={`/posts/${user_nick}`}>
                     <span>포스트</span>
                 </Link>
                 : <Link to='/writepost'>

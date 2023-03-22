@@ -33,26 +33,61 @@ const WritePage = ({isButtonTrue}) => {
         });
     }
 
+    // 에디터 이미지 업로드
+    const [desc, setDesc] = useState('');
+    const [uploadimage, setImage] = useState('');
+    const [flag, setFlag] = useState(false);
+    const imgLink = `${API_URL}/upload/`;
+
+    const customUploadAdapter = (loader) => {
+        return {
+            upload() {
+                return new Promise ((resolve, reject) => {
+                    const data = new FormData();
+                    loader.file.then((file) => {
+                        data.append('name', file.name);
+                        data.append('file', file);
+                        axios.post(`${API_URL}/upload`, data)
+                        .then((res) => {
+                            if(!flag) {
+                                setFlag(true);
+                                setImage(res.data.imgUrl);
+                            }
+                            resolve({ default: `${imgLink}/${res.data.imgUrl}` });
+                        })
+                        .catch(err => console.log(err))
+                    })
+                });
+            }
+        }
+    }
+
+    function uploadPlugin (editor) {
+        editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+            return customUploadAdapter(loader);
+        }
+    }
+
     // input의 type이 file인 input이 change됐을 때
     // 변경된 파일을 서버로 업로드 전송하기
-    const onChangeImg = (e) => {
-        const { name } = e.target;
-        // 폼 태그 생성하기
-        const imgFormData = new FormData();
-        // 폼 태그 데이터 추가하기
-        imgFormData.append('file', e.target.files[0]);
-        // 전송하기
-        axios.post(`${API_URL}/upload`, imgFormData, {
-            headers: {'Content-Type': 'multipart/formdata'}
-        })
-        .then(res => {
-            setFormData({
-                ...formData,
-                [name]: res.data.imgUrl
-            });
-        })
-        .catch(e => console.log(e))
-    }
+    // const onChangeImg = (e) => {
+    //     const { name } = e.target;
+    //     // 폼 태그 생성하기
+    //     const imgFormData = new FormData();
+    //     // 폼 태그 데이터 추가하기
+    //     imgFormData.append('file', e.target.files[0]);
+    //     // 전송하기
+    //     axios.post(`${API_URL}/upload`, imgFormData, {
+    //         headers: {'Content-Type': 'multipart/formdata'}
+    //     })
+    //     .then(res => {
+    //         setFormData({
+    //             ...formData,
+    //             [name]: res.data.imgUrl
+    //         });
+    //     })
+    //     .catch(e => console.log(e))
+    // }
 
     // 완료 버튼 클릭시 포스트 전송 메뉴가 나오게 만들기
     const [isMenu, setIsMenu] = useState(false);
@@ -132,11 +167,12 @@ const WritePage = ({isButtonTrue}) => {
                             });
                         } }
                         onBlur={ ( event, editor ) => {
-                            console.log( 'Blur.', editor );
+                            // console.log( 'Blur.', editor );
                         } }
                         onFocus={ ( event, editor ) => {
-                            console.log( 'Focus.', editor );
+                            // console.log( 'Focus.', editor );
                         } }
+                        config={{ extraPlugins: [uploadPlugin] }}
                     />
                 </div>
             </div>
@@ -185,7 +221,7 @@ const WritePage = ({isButtonTrue}) => {
                         </div>
                         <nav className='upload_zone'>
                             <input className='upload_input' value='첨부파일' placeholder='첨부파일'/>
-                            <label for='file' name='img' onChange={onChangeImg}>파일찾기</label> 
+                            <label for='file' name='img'>파일찾기</label> 
                             <input type='file' id='file'/>
                         </nav>
                     </div>

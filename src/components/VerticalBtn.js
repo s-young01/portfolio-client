@@ -20,6 +20,7 @@ const VerticalBtn = () => {
 
     // 로그인 체크
     const isLogin = useSelector(state => state.loginCheck.isLogin);
+
     return (
         <>
             {isLogin ? 
