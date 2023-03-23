@@ -10,11 +10,11 @@ const PostsContainer = () => {
     const { loading, data, error } = useSelector(state => state.postData.posts);
     const dispatch = useDispatch();
     const {userpath} = useParams();
-    console.log(userpath);
 
     // 콜백함수
     const postsData = async () => {
     const data = await axios.get(`${API_URL}/posts/${userpath}`);
+    console.log(data)
     return data;
 }
     

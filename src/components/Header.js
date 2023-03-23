@@ -28,6 +28,21 @@ const Header = () => {
             dispatch(setLogin());
         }
     });
+
+    // 검색 상태 관리
+    const [isSearch, setIsSearch] = useState('');
+
+    const onChange = (e) => {
+        setIsSearch(e.target.value);
+    }
+
+    const click_Search = () => {
+        if(isSearch !== undefined && isSearch !== '') {
+            setIsSearch('');
+        }else {
+            alert('검색어를 입력해주세요.');
+        }
+    }
     return (
         <div className='header'>
             <div className='inner'>
@@ -36,14 +51,20 @@ const Header = () => {
                 <div className='search_zone'>
                     {pathname === '/writepost' ? null
                     : <nav className='search_box'>
-                        <input type='text' placeholder='검색어를 입력하세요'/>
-                        <button>
-                            <BiSearchAlt2 className='search_icon'/>
-                        </button>
+                        <input type='text' placeholder='검색어를 입력하세요' value={isSearch} onChange={onChange}/>
+                        {isSearch !== undefined && isSearch !== '' ? 
+                        <Link to={`/searchpost/${user_nickname}/${isSearch}`}>
+                            <button onClick={click_Search}>
+                                <BiSearchAlt2 className='search_icon'/>
+                            </button>
+                        </Link>
+                        : <button onClick={click_Search}>
+                                <BiSearchAlt2 className='search_icon'/>
+                            </button>}
                     </nav>}
                 </div>
                 {isLogin ?  
-                    <div className='user_zone'  onClick={onClick_userMenu}>
+                    <div className='user_zone' onClick={onClick_userMenu}>
                         <div className='user_img' alt=''>
                         </div>
                         {userMenu && user_nickname ? <MdKeyboardArrowUp className='user_icon'/> 
