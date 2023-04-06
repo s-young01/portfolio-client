@@ -45,9 +45,8 @@ const Post = ({data}) => {
                 </nav>
             </div> 
             <div className='desc_zone'>
-            <div dangerouslySetInnerHTML={{ __html: data.p_content.replace(/\n/g, '<br>') }} />
+                <div dangerouslySetInnerHTML={{ __html: data.p_content.replace(/\n/g, '<br>') }} />
             </div>
-            {/* 댓글 컴포넌트 자리 */}
             <WriteCommend postno={data.p_no}/>
         </div>
     );

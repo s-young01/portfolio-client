@@ -68,27 +68,6 @@ const WritePage = ({isButtonTrue}) => {
         }
     }
 
-    // input의 type이 file인 input이 change됐을 때
-    // 변경된 파일을 서버로 업로드 전송하기
-    // const onChangeImg = (e) => {
-    //     const { name } = e.target;
-    //     // 폼 태그 생성하기
-    //     const imgFormData = new FormData();
-    //     // 폼 태그 데이터 추가하기
-    //     imgFormData.append('file', e.target.files[0]);
-    //     // 전송하기
-    //     axios.post(`${API_URL}/upload`, imgFormData, {
-    //         headers: {'Content-Type': 'multipart/formdata'}
-    //     })
-    //     .then(res => {
-    //         setFormData({
-    //             ...formData,
-    //             [name]: res.data.imgUrl
-    //         });
-    //     })
-    //     .catch(e => console.log(e))
-    // }
-
     // 완료 버튼 클릭시 포스트 전송 메뉴가 나오게 만들기
     const [isMenu, setIsMenu] = useState(false);
 

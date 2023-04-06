@@ -1,0 +1,100 @@
+// 폰트 변수 
+$title-fomt: 'Cafe24Danjunghae';
+$nomal-font: 'Cafe24Simplehae';
+
+$big-font: 38px;
+$midium-font: 16px;
+$small-font: 14px;
+
+// 색상 변수
+$dark: #333;
+$gray: #ccc;
+$light-gray: #eee;
+
+.user_profile {
+    margin-top: 180px;
+    font-family: $nomal-font;
+    font-weight: bold;
+    h3 {
+        padding-bottom: 30px;
+        font-size: $big-font;
+        border-bottom: 1px solid $dark;
+    }
+    .profile_zone {
+        width: 100%;
+        height: 280px;
+        display: flex;
+        margin: 30px 0;
+        padding-left: 40px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid $dark;
+        .user_img {
+            width: 30%;
+            .user_imgbox {
+                width: 150px;
+                height: 150px;
+                border: 1px solid $gray;
+                border-radius: 2px;
+                margin: 25px 0;
+            }
+            .btn-upload {
+                width: 150px;
+                height: 30px;
+                background: #fff;
+                border: 1px solid rgb(77,77,77);
+                border-radius: 10px;
+                font-weight: 500;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                &:hover {
+                    background: rgb(77,77,77);
+                }
+            }   
+            .file {
+                display: none;
+            }
+        }
+        .user_name {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .input_box {
+                p {
+                    margin-bottom: 10px;
+                }
+                input {
+                    width: 92%;
+                    padding: 10px 8px;
+                    border: 0;
+                    outline: 0;
+                    border: 1px solid $gray;
+                    border-radius: 2px;
+                    font-family: $nomal-font;
+                    font-weight: bold;
+                    letter-spacing: 2px;
+                }
+            }
+        }
+    }
+    .profile_btn {
+        text-align: end;
+        button {
+            font-family: $nomal-font;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border: 0;
+            outline: 0;
+            padding: 10px 28px;
+            border: 1px solid $gray;
+            border-radius: 2px;
+            transition: 0.3s;
+            cursor: pointer;
+            &:hover {
+                background-color: #ccc;
+            }
+        }
+    }
+}

@@ -20,6 +20,7 @@ const EditPostPage = ({isButtonTrue, data}) => {
 
     // 글 수정 상태관리
     const [isEditData, setEditData] = useState({
+        no: `${data.p_no}`,
         title: `${data.p_title}`,
         content: `${data.p_content}`,
         writer: getCookie('usernickname')
@@ -33,6 +34,8 @@ const EditPostPage = ({isButtonTrue, data}) => {
             [name]: value
         });
     }
+
+    console.log(isEditData.content);
 
     // input의 type이 file인 input이 change됐을 때
     // 변경된 파일을 서버로 업로드 전송하기
@@ -79,7 +82,7 @@ const EditPostPage = ({isButtonTrue, data}) => {
         .then(res => {
             console.log(res);
             alert('수정되었습니다.');
-            navigate(`/post/${isEditData.writer}`)
+            navigate(`/posts/${isEditData.writer}`);
         })
         .catch(e => console.log(e));
     }
@@ -112,7 +115,7 @@ const EditPostPage = ({isButtonTrue, data}) => {
                     placeholder='제목을 입력하세요' value={isEditData.title} onChange={onChange}/>
                     <CKEditor
                         editor={ ClassicEditor }
-                        data=""
+                        data={isEditData.content}
                         onReady={ editor => {
                             // You can store the "editor" and use when it is needed.
                             console.log( 'Editor is ready to use!', editor );
